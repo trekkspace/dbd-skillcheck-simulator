@@ -3,7 +3,7 @@
         <div >
             <div class="menu" v-if="menu">
                 <div class="navigation">
-                <!-- <div v-for="(key, value, index) in inventory" :key="index">
+                <!-- <div vnavigation-for="(key, value, index) in inventory" :key="index">
                     {{key}}
                 </div> -->
                 <div class="navigation-items">
@@ -19,10 +19,8 @@
                 <div class="template">
                     <div class="template-border"></div>
                     
-                    <simplebar data-simplebar-auto-hide="false">
-                        <div class="template-content">
+                    <simplebar class="template-content" data-simplebar-auto-hide="false">
                             <component :is="center"></component>
-                        </div>
                     </simplebar>
                 </div>
 
@@ -65,8 +63,8 @@ import About from '@/components/sidebar/About.vue'
 
 import {notification} from '@/js/library/use'
 
-import anime from 'animejs/lib/anime.es.js'
-import {dom} from '@/js/domElements'
+// import anime from 'animejs/lib/anime.es.js'
+// import {dom} from '@/js/domElements'
 
 
 export default {
@@ -89,13 +87,15 @@ export default {
   },
   computed:{
       leftTemplate(){
-          if (this.center == 'GameMode' && this.$store.state.gameStatus.now.gameMode == 'training') {
+        if (this.center == 'GameMode' && this.$store.state.gameStatus.now.gameMode == 'training') {
             return TrainingMode
           }else if(this.center == 'PlayerInventory'){
             return EquipItems
+          } else{
+              return ''
           }
       },
-        menu(){
+      menu(){
           return this.$store.state.gameEvents.events.menu
       }
   },
@@ -141,12 +141,21 @@ export default {
 }
 
 .navigation{
+
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-image: url('../assets/backgrounds/texture2.png');
+  background-position: center;
+  background-size: cover;
+
+
   position: absolute;
   left: -10vw;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  background: #ECECEC;
+  /* background: #ECECEC; */
   /* margin-top: 5rem; */
   height: 25vw;
   width: 10vw;
@@ -156,6 +165,14 @@ export default {
 
 
 .template-border{
+  background: #FFC2C2;
+
+background-position: center;
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-image: url('../assets/backgrounds/texture2.png');
+  background-position: center;
+  background-size: cover;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -164,10 +181,17 @@ export default {
   top: -.5vw;
   height: 26vw;
   width: 20vw;
-  background: #FFC2C2;
 }
 
 .item-showcase-border{
+  background: #FFC2C2;
+
+    background-position: center;
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-image: url('../assets/backgrounds/texture2.png');
+  background-position: center;
+  background-size: cover;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -176,15 +200,18 @@ export default {
   top: -.5vw;
   height: 11vw;
   width: 16vw;
-  background: #FFC2C2;
 }
 
 .navigation-items{
   display: flex;
   flex-direction: column;
-  text-align: end;
+  text-align: center;
   padding: .8vw 1vw;
   
+}
+
+.navigation-items a:hover{
+    transform: scale(1.2);
 }
 
 .navigation-to, .simple-to{
@@ -196,19 +223,32 @@ export default {
 }
 
 .simple-to{
-    transform: translateX(-1vw);
-    background: #242323;
+background-color: #8A9DDB;
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-image: url('../assets/backgrounds/texture5.png');
+  background-position: center;
+  background-size: cover;
+  /* background-color: rgb(82, 190, 204); */
+  color:aliceblue;
+  padding: 0.01em;
+  border-radius: 4px;
+  background-blend-mode: multiply;
+    /* background: #242323; */
 }
 
+
 .template-content{
-    padding: 0vw 5vw;
+    height: 24vw;
+    padding: 0vw 4vw;
 }
 
 .template{
   border-top-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  position: relative;
   background: #242323;
+  position: relative;
   width: 30vw;
   height: 25vw;
   color: white;
