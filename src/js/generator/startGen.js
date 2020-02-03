@@ -1,5 +1,5 @@
 import {skillcheckGeneration} from '@/js/skillcheckGeneration.js'
-import {gameOptions} from '@/js/status/options'
+// import {gameOptions} from '@/js/status/options'
 import {runGenerator} from '@/js/generator/runGen'
 import {generatorProgressInAnimation} from '@/js/animations/generatorAnim'
 

@@ -5,7 +5,7 @@ import failedSound from '@/audio/failed.ogg'
 import failedSound2 from '@/audio/failed2.ogg'
 import sparksSound from '@/audio/sparks.ogg'
 
-import {delay} from '@/js/library/math.js'
+// import {delay} from '@/js/library/math.js'
 import store from '@/store/store'
 import {playerOptions} from '@/js/status/options.js'
 import {skillcheckSpawnCoordinates} from '@/js/drawSkillCheck'

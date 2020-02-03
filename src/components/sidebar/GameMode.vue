@@ -59,6 +59,7 @@ export default {
         gameModes(){
             return this.$store.state.gameStatus.now.gameModes
         },
+                // eslint-disable-next-line vue/return-in-computed-property
                 effect(){
             if (this.$store.state.gameStatus.now.effects.includes('madness')) {
                 return 'activeGameMode'

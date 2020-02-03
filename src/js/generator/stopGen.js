@@ -1,6 +1,6 @@
-import {gameOptions} from '@/js/status/options.js'
+// import {gameOptions} from '@/js/status/options.js'
 
-import * as ffs from '@/js/library/math.js'
+// import * as ffs from '@/js/library/math.js'
 
 import store from '@/store/store'
 

@@ -33,7 +33,7 @@ import Popper from 'vue-popperjs'
 import 'vue-popperjs/dist/vue-popper.css'
 
 
-import {mapGetters} from 'vuex'
+// import {mapGetters} from 'vuex'
 
 export default {
     name: 'PlayerInventory',

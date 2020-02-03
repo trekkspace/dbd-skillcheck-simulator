@@ -1,8 +1,8 @@
 
-import {handleScore, startGenerator} from '@/js/needlePosition.js'
+import {handleScore} from '@/js/needlePosition.js'
 import store from '@/store/store.js'
 import * as event from '@/js/events/controlGameEvents.js'
-import {notification} from '@/js/library/use'
+// import {notification} from '@/js/library/use'
 
 
 const checkKeyChar = (key) => {
@@ -12,7 +12,7 @@ const checkKeyChar = (key) => {
 // hit a skillcheck "SPACE Default"
 
 
-var arrayGP = navigator.getGamepads()
+// var arrayGP = navigator.getGamepads()
 
 window.addEventListener("gamepadconnected", function(e) {
   console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
@@ -30,6 +30,8 @@ document.addEventListener('touchstart', e => {
 })
 
 document.addEventListener('mousedown', e => {
+    console.log(e)
+
     if (e.target.className == 'background' && store.state.playerSettings.mouse.skillCheckKey == e.buttons) {
         if (store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame) {
             handleScore()
@@ -38,6 +40,7 @@ document.addEventListener('mousedown', e => {
 })
 
 document.addEventListener('keypress', key => {
+    console.log(key)
     if (checkKeyChar(key.key) == store.state.playerSettings.keyboard.skillCheckKey && store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame) {
         handleScore()
     }

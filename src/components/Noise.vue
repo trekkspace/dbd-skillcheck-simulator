@@ -21,6 +21,7 @@ export default {
             let noiseData = []
             let frame = 0
 
+            // eslint-disable-next-line no-unused-vars
             let loopTimeout
 
 
@@ -78,18 +79,18 @@ export default {
             };
 
 
-            // Reset
-            let resizeThrottle;
-            const reset = () => {
-                window.addEventListener('resize', () => {
-                    window.clearTimeout(resizeThrottle)
+            // // Reset
+            // let resizeThrottle;
+            // const reset = () => {
+            //     window.addEventListener('resize', () => {
+            //         window.clearTimeout(resizeThrottle)
 
-                    resizeThrottle = window.setTimeout(() => {
-                        window.clearTimeout(loopTimeout)
-                        setup()
-                    }, 200)
-                }, false)
-            };
+            //         resizeThrottle = window.setTimeout(() => {
+            //             window.clearTimeout(loopTimeout)
+            //             setup()
+            //         }, 200)
+            //     }, false)
+            // };
 
 
             // Init
@@ -98,7 +99,9 @@ export default {
                 ctx = canvas.getContext('2d')
 
                 setup()
-            })()
+            })
+
+            init()
         }
     }
 }

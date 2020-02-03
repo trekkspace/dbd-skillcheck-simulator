@@ -35,8 +35,9 @@ import Sidebar from './views/Sidebar.vue'
 import ActiveKillerPerks from './components/ActiveKillerPerks.vue'
 
 
-import {playerOptions} from '@/js/status/options.js'
+// import {playerOptions} from '@/js/status/options.js'
 
+// eslint-disable-next-line no-unused-vars
 import * as events from '@/js/events/keyboardEvents.js'
 
 import Img1 from '@/assets/backgrounds/fire.jpg'

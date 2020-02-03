@@ -41,6 +41,8 @@ export default {
                     return `+ 1 ${m}`
                 case 3:
                     return `+ 2 ${m}s`
+                default:
+                    return ''
             }
         }
     },

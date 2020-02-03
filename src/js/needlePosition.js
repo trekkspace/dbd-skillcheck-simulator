@@ -2,7 +2,7 @@ import * as ffs from '@/js/library/math.js'
 
 import {checkNeedlePos} from '@/js/playerScore.js'
 import {skillcheckGeneration} from '@/js/skillcheckGeneration.js'
-import {skillCheckAnimation, removeSkillCheck} from '@/js/animations/skillcheck/skillCheckAnim'
+import {removeSkillCheck} from '@/js/animations/skillcheck/skillCheckAnim'
 
 import {dom} from '@/js/domElements'
 import store from '@/store/store.js'

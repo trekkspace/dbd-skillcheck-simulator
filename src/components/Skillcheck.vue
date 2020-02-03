@@ -16,7 +16,7 @@
   import keyCodes from '@/js/events/keyboard.js'
   import mouseCodes from '@/js/events/mouse.js'
 
-  import {drawSkillCheck} from '@/js/drawSkillCheck.js'
+  // import {drawSkillCheck} from '@/js/drawSkillCheck.js'
 
   export default {
     name: 'Skillcheck',
