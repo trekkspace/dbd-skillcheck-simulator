@@ -1,28 +1,163 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div oncontextmenu="return false;" id="app">
+    <div :style="{ backgroundImage: 'url(' + image + ')' }" class="background">
+    </div>
+    <Skillcheck/>
+    <GeneralStats/>
+    <Generator/>
+    <Combo/>
+    <ObjectivePoints/>
+    <Sidebar/>
+    <Noise/>
+    <!-- <Particles/> -->
+    <UserInteractionButtons/>
+    <Notifications/>
+    <Rank/>
+    <ActiveKillerPerks/>
+    <LeftBottom/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Skillcheck from './components/Skillcheck.vue'
+import GeneralStats from './components/GeneralStats.vue'
+import Generator from './components/Generator.vue'
+import Combo from './components/Combo.vue'
+import ObjectivePoints from './components/ObjectivePoints.vue'
+import Noise from './components/Noise.vue'
+import UserInteractionButtons from './components/UserInteractionButtons.vue'
+import Notifications from './components/Notifications.vue'
+import Rank from './components/Rank.vue'
+import LeftBottom from './components/LeftBottom.vue'
+
+
+import Sidebar from './views/Sidebar.vue'
+import ActiveKillerPerks from './components/ActiveKillerPerks.vue'
+
+
+import {playerOptions} from '@/js/status/options.js'
+
+import * as events from '@/js/events/keyboardEvents.js'
+
+import Img1 from '@/assets/backgrounds/fire.jpg'
+import Img2 from '@/assets/backgrounds/meg.jpg'
+import Img3 from '@/assets/backgrounds/astronomy.jpg'
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Skillcheck,
+    GeneralStats,
+    Generator,
+    Combo,
+    Sidebar,
+    ObjectivePoints,
+    Noise,
+    UserInteractionButtons,
+    Notifications,
+    Rank,
+    ActiveKillerPerks,
+    LeftBottom,
+  },
+  computed: {
+      image(){
+          let img = {
+              0: Img1,
+              1: Img2,
+              2: Img3
+          }
+
+          return img[this.$store.state.playerSettings.background]
+      }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+body{
+    background-color: #020202;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    padding: 1rem 1.4rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+:root{
+    font-size: 0.58vw;
+    --circle-height: 145px;
+    --circle-width: 145px;               
+    --skillcheck-bar-width: 14px;
+    --skillcheck-bar-height: 100px;
+    --skillcheck-bar-gradient: radial-gradient(#ff0000, hsla(0, 70%, 5%, 0.00), rgba(0, 0, 0, 0));
+    --skillcheck-button-padding: .1rem .6rem;
+    --skillcheck-button-borderRadius: 4px;
+    --skillcheck-button-border: 1.5px solid #ffffff;
+    --skillcheck-button-color: #ffffff;
+    --general-stats-color: #ffffff;
+}
+
+.background{
+    background: no-repeat center top fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-size: 100%;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.popper{
+    background: #383838;
+    border: none;
+    padding: 0.4rem;
+    box-shadow: none;
+    margin: 0px 4rem;
+}
+
+.p-item-name{
+    text-align: start;
+    font-size: 1.4vw;
+    color: #ffffff;
+    padding: .2rem 2rem; 
+    background: #9593f5;
+    width: 100%;
+}
+
+.p-item-true{
+    color: #6EF37B;
+}
+
+.p-item-false{
+    color: #FF4D4D;
+}
+
+.p-item-description{
+    font-size: 1vw;
+    color: rgb(168, 102, 255);
+    text-align: start;
+}
+
+.p-item-status{
+    margin: 1vw;
+    color: white;
+    text-align: start;
+    font-size: 1vw;
+    padding-left: 2rem;
+    list-style-type: circle;
+}
+
+.p-item-note{
+    font-size: 1vw;
+    color: #e3d1b6;
 }
 </style>
