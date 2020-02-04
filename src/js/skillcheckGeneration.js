@@ -1,5 +1,4 @@
 import * as ffs from '@/js/library/math.js'
-import anime from 'animejs/lib/anime.es.js'
 import playTrack from '@/js/sound.js'
 
 import {playerOptions} from '@/js/status/options'

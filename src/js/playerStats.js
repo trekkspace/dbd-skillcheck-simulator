@@ -1,4 +1,3 @@
-import * as ffs from '@/js/library/math.js'
 import store from '../store/store'
 
 
@@ -14,10 +13,10 @@ const playerRateStatus = (inputArr, outputArr) => {
                 store.state.playerStats.stats[element] = `${((store.state.playerStats.stats[inputArr[ind]] / totalScore) *100).toFixed(1)}%`
             })           
         } else{
-            console.log('The arrays must have the same length')
+            // console.log('The arrays must have the same length')
         }
     } else{
-        console.log('You must add only arrays')
+        // console.log('You must add only arrays')
     }
 }
 

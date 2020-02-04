@@ -4,12 +4,12 @@
         <img src="../assets/icons/trekkspace.png" alt="">
     </div> 
     <!-- // fullscreen button -->
-    <div v-tilt="{speed: 500, perspective: 1200, scale: 1.1, axis: 'x'}" @click="fullscreenMode()" class="fullscreen">
+    <div @click="fullscreenMode()" class="fullscreen">
         {{fullscreen}}
     </div>
 
     <!-- // generators left and items equiped -->
-    <div v-tilt="{speed: 500, perspective: 1200, scale: 1.1, axis: 'x'}" class="leftBottom">
+    <div class="leftBottom">
 
         <h2 :class="[gameStatus.generatorsLeft > 0  && gameStatus.gameMode !== 'ds' ? 'generators-left' : 'generators-left-inv' ]">{{ gameStatus.generatorsLeft}}</h2>
         <img v-if="gameStatus.gameMode == 'ds'" class="generator-icon" src="@/assets/icons/decisiveStrike.png" alt="">

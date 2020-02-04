@@ -15,11 +15,6 @@ import {pauseButtonAnimation} from '@/js/animations/buttons/pauseButtonAnim.js'
 import {resumeButtonAnimation} from '@/js/animations/buttons/resumeButtonAnim.js'
 // import {generatorProgressOutAnimation} from '@/js/animations/generatorAnim'
 
-// import {randomKillerPerks} from '@/js/perks'
-
-// document.addEventListener('mousedown', (e)=> {
-//     console.log(e)
-// })
 
 const checkLocked = () => {
     return store.state.gameEvents.events.locked

@@ -186,8 +186,6 @@ export default {
     margin-left: 4vw;
 }
 
-
-
 .allImg{
     text-align: center;
 }

@@ -37,7 +37,7 @@ import ActiveKillerPerks from './components/ActiveKillerPerks.vue'
 // import {playerOptions} from '@/js/status/options.js'
 
 // eslint-disable-next-line no-unused-vars
-// import * as events from '@/js/events/keyboardEvents.js'
+import * as events from '@/js/events/keyboardEvents.js'
 
 import Img1 from '@/assets/backgrounds/fire.jpg'
 import Img2 from '@/assets/backgrounds/meg.jpg'
@@ -88,8 +88,6 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
-
-
 
 :root{
     font-size: 0.58vw;

@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from '@/store/store'
 import router from './router'
-import VueTilt from 'vue-tilt.js'
 // import VueAnalytics from 'vue-analytics'
 
 Vue.config.productionTip = false
@@ -12,7 +11,6 @@ Vue.config.productionTip = false
 //   router
 // })
 
-Vue.use(VueTilt)
 
 
 new Vue({

@@ -1,6 +1,6 @@
 // import {updateDomData} from './dom.js'
 import {gameOptions} from '@/js/status/options.js'
-import {rateNormalStats, playerRateStatus} from '@/js/playerStats.js'
+import {playerRateStatus} from '@/js/playerStats.js'
 import {damageGenerator} from '@/js/generator/damageGen.js'
 import playTrack from '@/js/sound.js'
 

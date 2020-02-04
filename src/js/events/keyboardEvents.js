@@ -14,11 +14,11 @@ const checkKeyChar = (key) => {
 
 // var arrayGP = navigator.getGamepads()
 
-window.addEventListener("gamepadconnected", function(e) {
-  console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
-  e.gamepad.index, e.gamepad.id,
-  e.gamepad.buttons.length, e.gamepad.axes.length);
-});
+// window.addEventListener("gamepadconnected", function(e) {
+//   console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
+//   e.gamepad.index, e.gamepad.id,
+//   e.gamepad.buttons.length, e.gamepad.axes.length);
+// });
 
 // mobile users
 document.addEventListener('touchstart', e => {
@@ -30,7 +30,6 @@ document.addEventListener('touchstart', e => {
 })
 
 document.addEventListener('mousedown', e => {
-    console.log(e)
 
     if (e.target.className == 'background' && store.state.playerSettings.mouse.skillCheckKey == e.buttons) {
         if (store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame) {
@@ -40,7 +39,7 @@ document.addEventListener('mousedown', e => {
 })
 
 document.addEventListener('keypress', key => {
-    console.log(key)
+    // console.log(key)
     if (checkKeyChar(key.key) == store.state.playerSettings.keyboard.skillCheckKey && store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame) {
         handleScore()
     }
@@ -65,5 +64,5 @@ document.addEventListener('keypress', key => {
 // make sure to pause the generator if the user is not on the page and the generator is still running
 window.onblur = () => {
     event.pauseGame()
-    console.log( "Blur pause!" )
+    // console.log( "Blur pause!" )
 }

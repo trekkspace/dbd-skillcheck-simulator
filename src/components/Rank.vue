@@ -144,6 +144,7 @@ export default {
 
 .resumeBtn2{
     background: #EFE81A;
+    height: 2vw;
     /* z-index: 3; */
     /* color: #fff; */
 
