@@ -38,20 +38,18 @@
         <h1 class="s-title">Background</h1>
         <hr>
         <div class="background-select-div" style="position: relative;">
-            <button v-if="carouselData !== 0" class="prevImgBtn" @click.prevent="slidePrev">prev</button>
-            <button v-if="carouselData !== 2" class="nextImgBtn" @click.prevent="slideNext">next</button>
             
-            <hooper class="allImg" ref="carousel" @slide="updateCarousel">
-                <slide>
+            <agile @afterChange="showCurrentSlide($event)" :dots='false' :centerMode='true' :initialSlide='getSlide()' class="allImg" ref="carousel">
+                <div>
                     <img class="prevImg" src="@/assets/backgrounds/fire.jpg" alt="">
-                </slide>
-                <slide>
+                </div>
+                <div>
                     <img class="prevImg" src="@/assets/backgrounds/meg.jpg" alt="">
-                </slide>
-                <slide>
+                </div>
+                <div>
                     <img class="prevImg" src="@/assets/backgrounds/astronomy.jpg" alt="">
-                </slide>
-            </hooper>
+                </div>
+            </agile>
         </div>
     </div>
 </template>
@@ -63,13 +61,12 @@ import keyCodes from '@/js/events/keyboard.js'
 import mouseCodes from '@/js/events/mouse.js'
 import {notification} from '@/js/library/use'
 
-import { Hooper, Slide } from 'hooper'
-import 'hooper/dist/hooper.css'
+
+import { VueAgile } from 'vue-agile'
 
 export default {
     components: {
-      Hooper,
-      Slide
+      agile: VueAgile
     },
     data(){
         return{
@@ -139,18 +136,13 @@ export default {
                 notification('While the input is active press the key you want to bind.')
 
         },
-        slidePrev() {
-            this.$refs.carousel.slidePrev();
-        },
-        slideNext() {
-            this.$refs.carousel.slideNext();
-        },
-        updateCarousel(payload) {
-            if (payload.currentSlide !== payload.slideFrom) {
-                this.carouselData = payload.currentSlide
-                this.$store.state.playerSettings.background = this.carouselData
 
-            }
+        // carousel
+        showCurrentSlide (event) {
+            this.$store.state.playerSettings.background = event.currentSlide
+        },
+        getSlide(){
+            return this.$store.state.playerSettings.background
         }
     },
     computed: {
@@ -168,14 +160,8 @@ export default {
         },
         mouseKeys(){
             return mouseCodes.mouseCodes[this.mouse.skillCheckKey]
-        },
-
-    },
-    watch: {
-        carouselData () {
-            this.$refs.carousel.slideTo(this.$store.state.playerSettings.background);
         }
-  },
+    }
 }
 </script>
 
@@ -185,6 +171,10 @@ export default {
     position: relative;
     height: 10vw;
 }
+.agile__nav-button{
+    position: absolute;
+    top: 20%;
+}
 
 .prevImg{
     height: 10vw;
@@ -192,22 +182,11 @@ export default {
     background-size: cover;
 }
 
-.prevImgBtn{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 .allowBtn{
     margin-left: 4vw;
 }
 
-.nextImgBtn{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-}
+
 
 .allImg{
     text-align: center;
