@@ -26,7 +26,7 @@
         <h2 class="s-title">Add-Ons</h2>
         <div class="items">
             <div @click='buyItem(key, value)' class="item-box" v-for="(value, key, index) in addOns" :key="index">
-                <popper trigger="hover" :options="{placement: 'bottom'}">
+                <popper style="z-index: 9999;" trigger="hover" :options="{placement: 'bottom'}">
                     <div v-html="value.description" class="popper"></div>
                     <div slot="reference">
                         <img class='item-image' :src="require(`@/assets/items/low/${key}.png`)" alt="Not like this">

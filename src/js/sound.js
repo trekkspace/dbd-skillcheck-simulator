@@ -45,6 +45,6 @@ export default async function playTrack(track) {
             }
         }
     } else {
-        console.log(`'${track}' sound is not defined.`)
+        // console.log(`'${track}' sound is not defined.`)
     }
 }

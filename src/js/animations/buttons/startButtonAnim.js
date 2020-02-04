@@ -58,14 +58,14 @@ const startButtonAnimation = () => {
         .add(
             {
             targets: dom.buttons['stop'],
-            translateX: [-50, 20],
+            translateX: [-50, 0],
             opacity: [0, 1],
             }, 400)
         .add(
             {
             targets: dom.buttons['pause'],
             translateY: [0, 0],
-            translateX: [50, -20],
+            translateX: [50, 0],
             opacity: [0, 1],
             }, 400)
 }

@@ -32,7 +32,7 @@ const pauseButtonAnimation = () => {
         })
         .add({
             targets: dom.buttons['pause'],
-            translateY: [0, -75],
+            translateY: [25, -75],
             opacity: 0,
             complete(){
                 store.commit('updateGameStatus', [

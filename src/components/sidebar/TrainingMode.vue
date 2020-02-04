@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 class="s-title">Killer Perk Effects</h2>
+        <h2 class="s-title">Killer Perks</h2>
         <hr>
         <div class="killer-perks-showcase">
             <div @click='changeKillerPerk(perk)' class="killer-perk-box" v-for="(value, perk, index) in killerPerks" :key='index'>
@@ -42,8 +42,12 @@ export default {
 }
 
 .killer-perk-box{
-    background: #1B1B1B;
-    cursor: pointer;
+  background: #1B1B1B;
+  cursor: pointer;
+    
+  background: url('../../assets/backgrounds//texture4.png') center center var(--font-color-two);
+  background-size: cover;
+  background-blend-mode: multiply;
 }
 
 hr{

@@ -1,9 +1,15 @@
 <template>
-    <div>
-        <div @click="fullscreenMode()" class="fullscreen">
-            {{fullscreen}}
-        </div>
-    <div class="leftBottom">
+    <div class="cc">
+    <div class="creator">
+        <img src="../assets/icons/trekkspace.png" alt="">
+    </div> 
+    <!-- // fullscreen button -->
+    <div v-tilt="{speed: 500, perspective: 1200, scale: 1.1, axis: 'x'}" @click="fullscreenMode()" class="fullscreen">
+        {{fullscreen}}
+    </div>
+
+    <!-- // generators left and items equiped -->
+    <div v-tilt="{speed: 500, perspective: 1200, scale: 1.1, axis: 'x'}" class="leftBottom">
 
         <h2 :class="[gameStatus.generatorsLeft > 0  && gameStatus.gameMode !== 'ds' ? 'generators-left' : 'generators-left-inv' ]">{{ gameStatus.generatorsLeft}}</h2>
         <img v-if="gameStatus.gameMode == 'ds'" class="generator-icon" src="@/assets/icons/decisiveStrike.png" alt="">
@@ -61,7 +67,6 @@ export default {
             }
       },
       closeFullscreen() {
-          let elem = document.documentElement
             if (document.exitFullscreen) {
                 document.exitFullscreen();
             } else if (document.mozCancelFullScreen) { /* Firefox */
@@ -102,23 +107,41 @@ export default {
 
 <style>
 
-.leftBottom{
+.cc{
     position: absolute;
     bottom: 2%;
     left: 2%;
-    background: #383838;
     padding: 0.5rem;
 }
 
-.fullscreen{
-    background: #383838;
-    padding: 1vw 1vw;
-    font-size: 1.4vw;
-    position: absolute;
-    bottom: 6.5vw;
-    left: 2%;
+.creator img{
+    height: 3.1vw;
     cursor: pointer;
 }
+
+.leftBottom{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
+    padding: 0.5rem;
+
+    background: var(--texture-one) center center var(--font-color-one);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.fullscreen{
+    /* background: #383838; */
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
+    padding: .5vw 2.15vw;
+    font-size: 1.4vw;
+    margin-bottom: .4vw;
+    cursor: pointer;
+
+    background: var(--texture-one) center center var(--font-color-two);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+
 
 .generators-left, .generators-left-inv{
     font-size: 2vw;
@@ -159,6 +182,17 @@ export default {
     background: #242323;
     align-self: flex-end;
     grid-area: "addon2";
+}
+
+.addedToolbox, .addedAddOn1, .addedAddOn2{
+    box-shadow: 2px 2px 5px 0 rgba(109, 109, 109, 0.4);
+    border-radius: 2px;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    background-image: url('../assets/backgrounds/texture4.png');
+    background-position: top;
+    background-size: cover;
+    cursor: pointer;
 }
 
 .addedTools{

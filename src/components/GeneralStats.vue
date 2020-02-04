@@ -109,9 +109,8 @@
     position: absolute;
     top: 2%;
     right: 2%;
+
 }
-
-
 
 .opacity-gone{
     transition: 400ms;
@@ -137,6 +136,8 @@
     justify-content: end;
     grid-gap: 2.2rem;
     grid-template-columns: 16rem 8rem;
+
+    
 }
 
 .rank-bloodpoints, .rate-ds-skillchecks, .rate-normal-skillchecks{
@@ -145,6 +146,15 @@
     border-radius: 4px;
     background: rgba(56, 56, 56, .5);
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+
+    background: var(--texture-one) center center var(--font-color-two);
+    background-size: cover;
+    background-blend-mode: multiply;
+    
+}
+
+.rank-bloodpoints{
+     background-color: var(--font-color-one)
 }
 
 .top-status-img {
@@ -156,6 +166,7 @@
     height: 8rem;
     position: relative;
     width: fit-content;
+    
 }
 
 .rank-score-status {
@@ -219,7 +230,7 @@
     left: 0px;
     height: 8rem;
     width: 8rem;
-    background: url('../assets/backgrounds/dirty.png') no-repeat;
+    background: url('../assets/backgrounds/texture5.png') no-repeat;
 }
 
 .great-skill-rate-icon {
@@ -232,8 +243,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    color: #171717;
+    background: black;
+    border-radius: 50px;
+    padding: .1em .2em;
+    color: #fff;
     font-size: 2rem;
+
 }
 
 .rate-normal-skillchecks, .rate-ds-skillchecks {

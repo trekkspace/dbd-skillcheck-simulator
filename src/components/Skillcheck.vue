@@ -45,6 +45,7 @@
 
 <style scoped>
   .skillcheck {
+
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -56,6 +57,7 @@
   }
   
   .skillcheck-center {
+
     position: absolute;
     height: var(--circle-height);
     width: var(--circle-width);
@@ -72,6 +74,8 @@
   }
   
   .skillcheck-button {
+    box-shadow: 0 2px 5px 0 rgba(104, 104, 104, 0.4);
+
     position: absolute;
     color: var(--skillcheck-button-color);
     border: var(--skillcheck-button-border);

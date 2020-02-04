@@ -122,6 +122,8 @@ export default {
   transform: translateX(-50%);
   display: flex;
   z-index: 2;
+
+
 }
 
 .menu-btn{
@@ -132,22 +134,23 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     cursor: pointer;
+    
 }
 
 .menu-btn div{
     height: .8vw;
     width: .8vw;
-    background: #ffffff;
+
+    background: var(--texture-one) center center var(--font-color-one);
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 
 .navigation{
-
-  background-position: center;
-  /* background-repeat: no-repeat; */
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
+  background: var(--texture-one) center center var(--font-color-two);
   background-size: cover;
-  background-image: url('../assets/backgrounds/texture2.png');
-  background-position: center;
-  background-size: cover;
+  background-blend-mode: multiply;
 
 
   position: absolute;
@@ -165,14 +168,11 @@ export default {
 
 
 .template-border{
-  background: #FFC2C2;
-
-background-position: center;
-  /* background-repeat: no-repeat; */
+  background-color: #FFC2C2;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
+  background: var(--texture-one) center center var(--font-color-two);
   background-size: cover;
-  background-image: url('../assets/backgrounds/texture2.png');
-  background-position: center;
-  background-size: cover;
+  background-blend-mode: multiply;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -184,14 +184,11 @@ background-position: center;
 }
 
 .item-showcase-border{
-  background: #FFC2C2;
+  background-color: #FFC2C2;
 
-    background-position: center;
-  /* background-repeat: no-repeat; */
+  background: var(--texture-one) center center var(--font-color-two);
   background-size: cover;
-  background-image: url('../assets/backgrounds/texture2.png');
-  background-position: center;
-  background-size: cover;
+  background-blend-mode: multiply;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -227,7 +224,7 @@ background-color: #8A9DDB;
   background-position: center;
   /* background-repeat: no-repeat; */
   background-size: cover;
-  background-image: url('../assets/backgrounds/texture5.png');
+  background-image: url('../assets/backgrounds/texture3.png');
   background-position: center;
   background-size: cover;
   /* background-color: rgb(82, 190, 204); */
@@ -252,6 +249,10 @@ background-color: #8A9DDB;
   width: 30vw;
   height: 25vw;
   color: white;
+
+  background: url('../assets/backgrounds/texture11.png') center center rgb(78, 78, 78);
+  background-size: cover;
+  background-blend-mode: multiply;
 }
 
 .item-showcase{
@@ -264,6 +265,8 @@ background-color: #8A9DDB;
   width: 20vw;
   height: 10vw;
   background: #242323;
+  background: url('../assets/backgrounds/texture11.png') center center rgb(83, 83, 83);
+  background-blend-mode: multiply;
 }
 
 .menu-text{

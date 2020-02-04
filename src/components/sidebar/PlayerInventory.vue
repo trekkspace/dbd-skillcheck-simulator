@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div style="height: 27vw;">
         <h2 class="s-title">Inventory</h2>
         <hr>
         <h2 style="text-align: center;" v-if="Object.keys(inventory).length < 1">No items</h2>
         <div v-else class="items">
             <div @click="equipItem(key, value)" class="item-box" v-for="(value, key, index) in inventory" :key="index">
 
-                <popper trigger="hover" :options="{placement: 'bottom'}">
+                <popper style="z-index: 9999;" trigger="hover" :options="{placement: 'bottom'}">
 
                     <div v-html="value.description" class="popper">
                         
@@ -113,8 +113,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-
-</style>

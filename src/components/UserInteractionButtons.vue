@@ -70,17 +70,22 @@ export default {
 .generatorButtons{
     z-index: 2;
     position: absolute;
-    bottom: 3%;
+    bottom: 2%;
     left: 50%;
-    width: 10vw;
+    width: 17vw;
     transform: translateX(-50%);
-    background: #383838;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
-    padding: 1.2rem;
+    padding: .4vw;
     border-radius: 2px;
     display: grid;
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr;
+
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
+
+    background: var(--texture-one) center center var(--font-color-one);
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 
 /* // buttons */
@@ -90,25 +95,51 @@ button{
     padding: .6rem .8rem;
     border: none;
     color: #574E4E;
-    font-size: 1.6rem;
+    font-size: 2.5rem;
     border-radius: .2rem;
+    width: auto;
+    border: none;
+    background: #404040;
+    color: #ffffff !important;
+    font-weight: 100;
+    /* padding: 20px; */
+    text-transform: uppercase;
+    border-radius: 6px;
+    transition: all 0.3s ease 0s;
+
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
+    
+    background: var(--texture-two) center center var(--font-color-one);
+    background-size: cover;
+    background-blend-mode: multiply;
 
 }
+
+button:hover{
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
+}
+
 
 button:enabled{
     cursor: pointer;
 }
 
 .stopBtn{
-    background: #EFE81A;
+    background-color: #EFE81A;
 }
 
 .pauseBtn{
-    background: #80D5FF;
+    background-color: #80D5FF;
 }
 
 .playBtn, .resumeBtn{
-    background: #44F74A;
+    background-color: rgb(142, 149, 243);
 }
 
 .playBtn{

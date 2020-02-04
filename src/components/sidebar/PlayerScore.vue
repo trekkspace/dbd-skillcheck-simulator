@@ -35,9 +35,14 @@ export default {
 .player-score-name{
     border-radius: 2px;
     padding: 0.4rem 0.4rem;
-    background: #72fa76;
-    color: #2A812D;
-    border: 2px solid #28f82e;
+    color: #FFF;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: .1em 1em;
+    width: 100%;
+    text-align: end;
+
 }
 
 

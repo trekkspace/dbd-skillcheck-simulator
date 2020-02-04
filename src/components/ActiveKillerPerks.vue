@@ -40,6 +40,11 @@ export default {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
     display: grid;
     grid-auto-flow: column;
+
+
+    background: var(--texture-one) center center var(--font-color-one);
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 
 .killer-perks-tokens{

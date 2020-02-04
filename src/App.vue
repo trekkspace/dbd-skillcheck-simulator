@@ -30,7 +30,6 @@ import Notifications from './components/Notifications.vue'
 import Rank from './components/Rank.vue'
 import LeftBottom from './components/LeftBottom.vue'
 
-
 import Sidebar from './views/Sidebar.vue'
 import ActiveKillerPerks from './components/ActiveKillerPerks.vue'
 
@@ -38,7 +37,7 @@ import ActiveKillerPerks from './components/ActiveKillerPerks.vue'
 // import {playerOptions} from '@/js/status/options.js'
 
 // eslint-disable-next-line no-unused-vars
-import * as events from '@/js/events/keyboardEvents.js'
+// import * as events from '@/js/events/keyboardEvents.js'
 
 import Img1 from '@/assets/backgrounds/fire.jpg'
 import Img2 from '@/assets/backgrounds/meg.jpg'
@@ -59,7 +58,7 @@ export default {
     Notifications,
     Rank,
     ActiveKillerPerks,
-    LeftBottom,
+    LeftBottom
   },
   computed: {
       image(){
@@ -104,6 +103,10 @@ body{
     --skillcheck-button-border: 1.5px solid #ffffff;
     --skillcheck-button-color: #ffffff;
     --general-stats-color: #ffffff;
+    --font-color-one: #91e4c8;
+    --font-color-two: #a5acaa;
+    --texture-one: url('../src/assets/backgrounds/texture2.png');
+    --texture-two: url('../src/assets/backgrounds/texture15.png');
 }
 
 .background{

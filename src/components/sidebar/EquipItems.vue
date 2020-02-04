@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2 class="s-title">Equiped</h2>
+        <h2 class="s-title">Items Equiped</h2>
         <hr>
         <div class="items-equiped">
             <div v-if="itemOn.toolbox.length > 0">
@@ -92,6 +92,12 @@ export default {
     grid-auto-flow: column;
     justify-content: center;
     grid-gap: 1vw;
+}
+
+.items-equiped div{
+      background: url('../../assets/backgrounds//texture4.png') center center var(--font-color-two);
+  background-size: cover;
+  background-blend-mode: multiply;
 }
 
 .toolbox-equiped{

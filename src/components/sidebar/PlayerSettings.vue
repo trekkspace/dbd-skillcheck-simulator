@@ -8,7 +8,7 @@
                 <input class="s-right"
                     :placeholder="keyboard[value] || String.fromCharCode(value) || 'Unknown'" 
                     @input="setKeyboardKey(key)"
-                    
+                    @click="setKeyMessage()"
                     @blur="resetInput()"
                     type="text">
         </div>
@@ -107,7 +107,7 @@ export default {
             const minVal = playerOptions[key].minValue()
             const maxVal = playerOptions[key].maxValue()
             playerOptions[key].value = isNaN(inpValue) ? minVal : inpValue >= maxVal ? maxVal: inpValue <= minVal ? minVal : inpValue
-            console.log(`min val ${minVal} - max val ${maxVal} - val ${playerOptions[key].value}`)
+            // console.log(`min val ${minVal} - max val ${maxVal} - val ${playerOptions[key].value}`)
 
         },
         allowMouseException(){
@@ -127,13 +127,17 @@ export default {
                 if (event.buttons) {
                     this.$store.state.playerSettings.mouse.skillCheckKey = event.buttons
                 } else{
-                    console.log('Not a key.')
+                    // console.log('Not a key.')
                 }
                 
             } else{
-                notification('Keep your mouse pointer in the box and press the key that you want to bind')
+                notification('Keep your mouse pointer in the input box and press the mouse key that you want to bind.')
                 event.target.dataset.change = 'true'
             }
+        },
+        setKeyMessage(){
+                notification('While the input is active press the key you want to bind.')
+
         },
         slidePrev() {
             this.$refs.carousel.slidePrev();
@@ -169,7 +173,7 @@ export default {
     },
     watch: {
         carouselData () {
-            this.$refs.carousel.slideTo(this.carouselData);
+            this.$refs.carousel.slideTo(this.$store.state.playerSettings.background);
         }
   },
 }
@@ -194,6 +198,10 @@ export default {
     transform: translateY(-50%);
 }
 
+.allowBtn{
+    margin-left: 4vw;
+}
+
 .nextImgBtn{
     position: absolute;
     top: 50%;
@@ -207,8 +215,9 @@ export default {
 
 input{
     width: 10rem;
-    background: #FFC2C2;
-    border: 2px solid #FF7676;
+    background: rgb(103, 238, 175);
+    border: none;
+    background: url('../../assets/backgrounds/texture13.png');
     border-radius: 2px;
     /* justify-self: end; */
     text-align: center;
@@ -227,7 +236,8 @@ input:focus{
 }
 
 ::placeholder{
-    color: #7C5E5E;
+    font-size: 1vw;
+    color: #fff;
 }
 
 input:focus::placeholder{

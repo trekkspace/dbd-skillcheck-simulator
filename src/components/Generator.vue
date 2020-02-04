@@ -2,13 +2,13 @@
         <div style="opacity: 0;" v-show="showGenerator" ref="border" class="progress-elements">
 
         <!-- <img class="generator-progress-icon" src="@/assets/icons/on_gen.png" alt=""> -->
+            <div ref="repair-message" class="repair-message">Repair Progress > {{ (generatorStatus).toFixed(1) + '%' }}</div>
+
             <div class="progress-elemens-position">
-                <div ref="repair-message" class="repair-message">Repair</div>
                 <div ref="progress-bar" class="progress-bar">
                     <div :style="{ width: generatorStatus + '%' }" :class="[toolboxOn ? 'progress-bar-bonus-left' : 'progress-bar-completed']"></div>
                     <div :style="{ width: (100 - generatorStatus) + '%' }" class="progress-bar-left"></div>
                 </div>
-                <h4 ref="progress-text" class="get_time">{{ (generatorStatus).toFixed(1) + '%' }}</h4>
             </div>
 
         </div>
@@ -59,16 +59,27 @@ export default {
 }
 
 .progress-elements{
-    width: 15vw;
     display: flex;
-    justify-content: center;
-    background: #383838;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* background: #383838; */
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
     z-index: 2;
     position: absolute;
     bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.progress-elemens-position{
+    /* width: 15vw; */
+    padding: .8vw .25vw;
+    text-align: center;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+
+    background: var(--texture-one) center center var(--font-color-two);
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 
 .progress-bar{
@@ -109,6 +120,14 @@ export default {
 .repair-message{
     font-size: 2rem;
     margin-bottom: 1rem;
+    width: 15vw;
+    padding: .1vw 0;
+    border-radius: 2px;
+    text-align: center;
+
+    background: var(--texture-one) center center var(--font-color-one);
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 
 .generator-progress-icon{
