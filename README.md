@@ -20,7 +20,7 @@ The Killer Perks can be activated/dezactivated using **TRAINING** mode from the 
   - Unnerving Presence
     - Triggered Skill Checks' success zones are reduced by 40/50/60 %. 
 ### Survivor Perks
-There is only **DECISEVE STRIKE** **(DS)** that can be selected from the **GAME MODE** menu.
+There is only **DECISIVE STRIKE** **(DS)** that can be selected from the **GAME MODE** menu.
 
 ## Toolboxes 
 The Toolbox is an item that can be used to repair generators more quickly. Different Toolboxes have different uses and not all of them are good for both uses. Add-ons can be equipped to enhance their speed and durability. Toolboxes and add-ons can be bought with bloodpoints. You can gain bloodpoins fast by hitting great skillchecks multiple times. You can gain free Bloodpoints by finding the secret :)
