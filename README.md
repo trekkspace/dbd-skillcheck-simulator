@@ -2,7 +2,7 @@
 Dead by Daylight Skillcheck Simulator - Train your skills. 
 Killer perks, items and add-ons that can affect the generator progress in any way can be tested and learned here.
 
-[![N|Solid](/src/assets/backgrounds/dbd-skillcheck-simulator.png)](http://dbd.trekkspace.com)
+[![N|Solid](/src/assets/backgrounds/dbd-skillcheck-simulator2.png)](http://dbd.trekkspace.com)
 ## Website
 Visit http://dbd.trekkspace.com/ to play.
 
