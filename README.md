@@ -2,7 +2,7 @@
 Dead by Daylight Skillcheck Simulator - Train your skills. 
 Killer perks, items and add-ons that can affect the generator progress in any way can be tested and learned here.
 
-[![N|Solid](/src/assets/backgrounds/dbd-skillcheck-simulator2.png)](http://dbd.trekkspace.com)
+[![N|Solid](/src/assets/backgrounds/dbd-skillcheck-simulator3.png)](http://dbd.trekkspace.com)
 ## Website
 Visit http://dbd.trekkspace.com/ to play.
 
@@ -20,7 +20,7 @@ The Killer Perks can be activated/dezactivated using **TRAINING** mode from the 
   - Unnerving Presence
     - Triggered Skill Checks' success zones are reduced by 40/50/60 %. 
 ### Survivor Perks
-There is only **DECISE STRIKE** **(DS)** that can be selected from the **GAME MODE** menu.
+There is only **DECISEVE STRIKE** **(DS)** that can be selected from the **GAME MODE** menu.
 
 ## Toolboxes 
 The Toolbox is an item that can be used to repair generators more quickly. Different Toolboxes have different uses and not all of them are good for both uses. Add-ons can be equipped to enhance their speed and durability. Toolboxes and add-ons can be bought with bloodpoints. You can gain bloodpoins fast by hitting great skillchecks multiple times. You can gain free Bloodpoints by finding the secret :)
