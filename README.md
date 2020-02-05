@@ -2,25 +2,31 @@
 Dead by Daylight Skillcheck Simulator - Train your skills. 
 Killer perks, items and add-ons that can affect the generator progress in any way can be tested and learned here.
 
-[![N|Solid](https://i.imgur.com/JTV7q9d.jpg)](http://dbd.trekkspace.com)
-
+[![N|Solid](/src/assets/backgrounds/dbd-skillcheck-simulator.png)](http://dbd.trekkspace.com)
 ## Website
 Visit http://dbd.trekkspace.com/ to play.
 
 
 ## Perks
+### Killer Perks
 
-The Killer Perks can be activated/dezactivated using 'Training' mode from the 'Game Mode' menu. Selecting 'Training' mode, will activate the selected perks at the maximum tier or at the maximum number of tokens(Hex: Huntress Lullaby). Each Killer Perk in 'Normal' mode will have 50% changes to activate, when starting a generator, then the perks will have 10% changes to activate/dezativate the effect during the game. For 'Decisive Strike' all perks will remain inactive.
-  - Hex: Ruin (got nurfed in DBD but will remain here as a remainder)
-  - Hex: Huntress Lullaby (at 5 totems skillchecks will spawn without a sound)
+The Killer Perks can be activated/dezactivated using **TRAINING** mode from the **GAME MODE** menu. Selecting **TRAINING** mode, will activate the selected perks at the maximum tier or at the maximum number of tokens(Hex: Huntress Lullaby). Each Killer Perk in **NORMAL** mode will have 50% changes to activate, when starting a generator, then the perks will have 10% changes to activate/dezativate the effect during the game. For **DECISIVE STRIKE** all killer perks will remain inactive.
+  - Hex: Ruin - **Version 2.6.0** *(got nurfed in **Version 3.5.0**)* 
+    - Good Skill Checks result in 3/4/5 % regression on the Generator.
+    - Great Skill Checks grant 0 % bonus progression on the Generator.
+  - Hex: Huntress Lullaby 
+    - 1 to 4 Tokens: Time between the Skill Check warning sound and the Skill Check becomes shorter.
+    - 5 Tokens: No Skill Check warning.
   - Unnerving Presence
+    - Triggered Skill Checks' success zones are reduced by 40/50/60 %. 
+### Survivor Perks
+There is only **DECISE STRIKE** **(DS)** that can be selected from the **GAME MODE** menu.
 
-## Items
-
-You can also buy Items(Toolbox/Add-ons). The items have the same effect as in Dead By Daylight. You can gain free Bloodpoints by finding the secret :)
-
+## Toolboxes 
+The Toolbox is an item that can be used to repair generators more quickly. Different Toolboxes have different uses and not all of them are good for both uses. Add-ons can be equipped to enhance their speed and durability. Toolboxes and add-ons can be bought with bloodpoints. You can gain bloodpoins fast by hitting great skillchecks multiple times. You can gain free Bloodpoints by finding the secret :)
+- ### Items
   - Worn-Out Tools
-    -    80 charges  
+    - 80 charges  
     -    Moderately increases repair speed
     -    Slightly decreases Skill Check success zones
   - Toolbox (Item)
@@ -37,17 +43,46 @@ You can also buy Items(Toolbox/Add-ons). The items have the same effect as in De
     -    80 charges.
     -    Tremendously increases repair speed.
   - Alex's Toolbox
-    -    13 charges.
+    -    130 charges.
     -    Slightly increases repair speed.
+- ### Add-ons
+  - Spring Clamp
+    - Slightly increases repair Skill Check success zones.
+    - Stacks: No.
+  - Scraps
+    - Adds 15 charges to the Toolbox.
+    - Stacks: Yes.
+  - Clean Rag
+    - Slightly increases the Toolbox's repair speed.
+    - Stacks: Yes.
+  - Wire Spool
+    - Adds 30 charges to the Toolbox.
+    - Stacks: Yes.
+  - Socket Swivels
+    - Moderately increases the Toolbox repair speed.
+    - Stacks: Yes.
+  - Protective Gloves *(doesn't affect the generator)*
+    - Stacks: Yes.
+  - Instructions
+    - Moderately increases the Toolbox's repair efficiency.
+    - Stacks: Yes.
+  - Grip Wrench
+    - Moderately increases repair Skill Check success zones.
+    - Stacks: Yes.
+  - Cutting Wire *(doesn't affect the generator)*
+    - Stacks: No.
+  - Hacksaw *(doesn't affect the generator)*
+    - Stacks: Yes.
 
 ## Future Updates (*project on hold)
 
  - Add 'New Brand Tool' (Item)
  - Add 'Overcharge' Killer Perk (in testing)
+ - Update Hex: Ruin to Version 3.5.0
 
-### Installation
+## Local Installation
 
-DBD Skillcheck Simulator requires [Node.js](https://nodejs.org/) v10+ to run
+DBD Skillcheck Simulator requires [Node.js](https://nodejs.org/) v12+ to run
 Install the dependencies and start the server.
 
 ```sh
@@ -55,12 +90,12 @@ $ cd dbd-skillcheck-simulator
 $ npm install
 $ npm run serve
 ```
-Go to localhost:8080 to play.
+Go to **localhost:8080** to play.
 
-## Thank you
+## Contribute
 
 Want to contribute? Great!
-This project uses Javascript and Vue feel free to improve the project if you found bugs or have other ideeas.
+This project uses Javascript and VueJS, feel free to improve the project if you found bugs or have other ideeas.
 
 ## Feedback
 
@@ -70,3 +105,4 @@ License
 ----
 
 MIT
+
