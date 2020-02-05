@@ -5,7 +5,9 @@ const state = {
         generator: false,
         locked: false,
         startGame: false,
-        pauseGame: false
+        pauseGame: false,
+        blockBrowserBackAndFowards: 'INACTIVE'
+
     },
     buttons: {
         startGameButton: true,

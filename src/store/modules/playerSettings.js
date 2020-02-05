@@ -14,7 +14,7 @@ const state = {
         skillCheckKey: 2 // M2 // stopNeedleKey
     },
     custom: playerOptions,
-    background: 1
+    background: 3,
 }
 
 export default {

@@ -19,7 +19,11 @@
                 <span class="border-line"></span>
                 <input @blur="resetInput()" :placeholder="mouseKeys" @mousedown="setMouseKey()" class="s-right" type="text">
             </div>
-            <button @click="allowMouseException()" class="allowBtn">Allow M4 / M5</button>
+            <div class="s-template s-keyboard">
+                <h2 class="s-left s-text">allow m4 / m5</h2>
+                <span class="border-line"></span>
+                <input @blur="resetInput()" :placeholder="bBack" @click="allowMouseException()" class="s-right" type="text">
+            </div>
         <h1 class="s-title">Custom</h1>
         <hr>
          <div class="s-template s-custom" v-for="(value, key, index) in playerOptions" :key="index + key">
@@ -64,7 +68,7 @@ export default {
     },
     data(){
         return{
-            carouselData: 0
+            blockBrowserBackAndFowards: 'INACTIVE'
         }
     },
     methods:{
@@ -102,9 +106,15 @@ export default {
 
         },
         allowMouseException(){
+
+            if (this.$store.state.gameEvents.events.blockBrowserBackAndFowards == 'ACTIVE') {
+                notification('You have to close this window to dezactivate this option.')
+            }
+
             if (!this.$store.state.acceptAllMouseButtons) {
                 let confirmLock = confirm(`Are you sure you want to activate M4/M5? Those keys are usually browser-back/browser-forward, you'll overrite those options on this page.`)
                 if (confirmLock) {
+                    this.$store.state.gameEvents.events.blockBrowserBackAndFowards = 'ACTIVE'
                     this.$store.state.acceptAllMouseButtons = true
                     history.pushState(null, null, location.href)
                     window.onpopstate = function () {
@@ -127,8 +137,7 @@ export default {
             }
         },
         setKeyMessage(){
-                notification('While the input is active press the key you want to bind.')
-
+            notification('While the input is active press the key you want to bind.')
         },
 
         // carousel
@@ -154,6 +163,9 @@ export default {
         },
         mouseKeys(){
             return mouseCodes.mouseCodes[this.mouse.skillCheckKey]
+        },
+        bBack(){
+            return this.$store.state.gameEvents.events.blockBrowserBackAndFowards
         }
     }
 }
