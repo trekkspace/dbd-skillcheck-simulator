@@ -109,8 +109,9 @@ body{
     --general-stats-color: #ffffff;
     --font-color-one: #91e4c8;
     --font-color-two: #a5acaa;
-    --texture-one: url('../src/assets/backgrounds/texture2.png');
+    --texture-one: url('../src/assets/backgrounds/texture20.png');
     --texture-two: url('../src/assets/backgrounds/texture15.png');
+    --texture-tree: url('../src/assets/backgrounds/texture2.png')
 }
 
 .background{

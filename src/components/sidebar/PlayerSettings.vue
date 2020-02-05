@@ -35,31 +35,16 @@
                     type="number">
         </div>
 
-        <h1 class="s-title">Background</h1>
-        <hr>
-        <div class="background-select-div" style="position: relative;">
-            
+        <h1 class="s-title">Backgrounds</h1>
+        <hr>            
             <agile @afterChange="showCurrentSlide($event)" :dots='false' :centerMode='true' :initialSlide='getSlide()' class="allImg" ref="carousel">
-                <div>
                     <img class="prevImg" src="@/assets/backgrounds/fire.jpg" alt="">
-                </div>
-                <div>
                     <img class="prevImg" src="@/assets/backgrounds/meg.jpg" alt="">
-                </div>
-                <div>
                     <img class="prevImg" src="@/assets/backgrounds/astronomy.jpg" alt="">
-                </div>
-                                <div>
                     <img class="prevImg" src="@/assets/backgrounds/b1.jpg" alt="">
-                </div>
-                                <div>
                     <img class="prevImg" src="@/assets/backgrounds/b2.jpg" alt="">
-                </div>
-                                <div>
                     <img class="prevImg" src="@/assets/backgrounds/b3.jpg" alt="">
-                </div>
             </agile>
-        </div>
     </div>
 </template>
 
@@ -174,18 +159,26 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
-.background-select-div{
-    position: relative;
-    height: 10vw;
+.agile__actions{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
 }
 
 
 .prevImg{
-    height: 10vw;
-    width: auto;
-    background-size: cover;
+    /* position: relative; */
+    /* height: 100%; */
+    /* width: 15vw; */
+    /* background-size: cover; */
+    align-items: center;
+	color: #fff;
+	display: flex;
+	height: 12vw;
+	justify-content: center;
 }
 
 .allowBtn{

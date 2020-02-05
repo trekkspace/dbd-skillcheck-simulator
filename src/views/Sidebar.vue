@@ -141,14 +141,14 @@ export default {
     height: .8vw;
     width: .8vw;
 
-    background: var(--texture-one) center center var(--font-color-one);
+    background: var(--texture-tree) center center var(--font-color-one);
     background-size: cover;
     background-blend-mode: multiply;
 }
 
 .navigation{
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
-  background: var(--texture-one) center center var(--font-color-two);
+  background: var(--texture-tree) center center var(--font-color-two);
   background-size: cover;
   background-blend-mode: multiply;
 
@@ -170,7 +170,7 @@ export default {
 .template-border{
   background-color: #FFC2C2;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
-  background: var(--texture-one) center center var(--font-color-two);
+  background: var(--texture-tree) center center var(--font-color-two);
   background-size: cover;
   background-blend-mode: multiply;
   position: absolute;
@@ -186,7 +186,7 @@ export default {
 .item-showcase-border{
   background-color: #FFC2C2;
 
-  background: var(--texture-one) center center var(--font-color-two);
+  background: var(--texture-tree) center center var(--font-color-two);
   background-size: cover;
   background-blend-mode: multiply;
   position: absolute;
