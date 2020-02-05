@@ -42,6 +42,9 @@ import * as events from '@/js/events/keyboardEvents.js'
 import Img1 from '@/assets/backgrounds/fire.jpg'
 import Img2 from '@/assets/backgrounds/meg.jpg'
 import Img3 from '@/assets/backgrounds/astronomy.jpg'
+import Img4 from '@/assets/backgrounds/b1.jpg'
+import Img5 from '@/assets/backgrounds/b2.jpg'
+import Img6 from '@/assets/backgrounds/b3.jpg'
 
 
 export default {
@@ -65,7 +68,10 @@ export default {
           let img = {
               0: Img1,
               1: Img2,
-              2: Img3
+              2: Img3,
+              3: Img4,
+              4: Img5,
+              5: Img6
           }
 
           return img[this.$store.state.playerSettings.background]

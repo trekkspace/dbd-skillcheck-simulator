@@ -98,16 +98,16 @@ const score = (status) => {
 
 const checkNeedlePos = (pos) => {     
         if (skillcheckSpawnCoordinates.greatSkillCheckCoordinates.start <= pos && pos <= skillcheckSpawnCoordinates.greatSkillCheckCoordinates.end) {
-            console.log('Great Skillcheck')
+            // console.log('Great Skillcheck')
             
             score('great')
 
         } else if (skillcheckSpawnCoordinates.goodSkillCkeckCoordinates.start < pos && pos <= skillcheckSpawnCoordinates.goodSkillCkeckCoordinates.end) {
-            console.log('Good Skillcheck')
+            // console.log('Good Skillcheck')
             score('good')
 
         } else {
-            console.log('Failed Skillcheck')
+            // console.log('Failed Skillcheck')
             score('failed')
         }
 }

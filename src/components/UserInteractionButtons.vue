@@ -130,16 +130,9 @@ button:enabled{
     cursor: pointer;
 }
 
-.stopBtn{
-    background-color: #EFE81A;
-}
 
-.pauseBtn{
+.playBtn, .resumeBtn, .pauseBtn, .stopBtn{
     background-color: #80D5FF;
-}
-
-.playBtn, .resumeBtn{
-    background-color: rgb(142, 149, 243);
 }
 
 .playBtn{

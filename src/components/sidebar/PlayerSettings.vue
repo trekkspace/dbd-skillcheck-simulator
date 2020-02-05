@@ -49,6 +49,15 @@
                 <div>
                     <img class="prevImg" src="@/assets/backgrounds/astronomy.jpg" alt="">
                 </div>
+                                <div>
+                    <img class="prevImg" src="@/assets/backgrounds/b1.jpg" alt="">
+                </div>
+                                <div>
+                    <img class="prevImg" src="@/assets/backgrounds/b2.jpg" alt="">
+                </div>
+                                <div>
+                    <img class="prevImg" src="@/assets/backgrounds/b3.jpg" alt="">
+                </div>
             </agile>
         </div>
     </div>
@@ -171,10 +180,7 @@ export default {
     position: relative;
     height: 10vw;
 }
-.agile__nav-button{
-    position: absolute;
-    top: 20%;
-}
+
 
 .prevImg{
     height: 10vw;
