@@ -41,13 +41,8 @@
 
         <h1 class="s-title">Backgrounds</h1>
         <hr>            
-            <agile @afterChange="showCurrentSlide($event)" :dots='false' :centerMode='true' :initialSlide='getSlide()' class="allImg" ref="carousel">
-                    <img class="prevImg" src="@/assets/backgrounds/fire.jpg" alt="">
-                    <img class="prevImg" src="@/assets/backgrounds/meg.jpg" alt="">
-                    <img class="prevImg" src="@/assets/backgrounds/astronomy.jpg" alt="">
-                    <img class="prevImg" src="@/assets/backgrounds/b1.jpg" alt="">
-                    <img class="prevImg" src="@/assets/backgrounds/b2.jpg" alt="">
-                    <img class="prevImg" src="@/assets/backgrounds/b3.jpg" alt="">
+            <agile @afterChange="showCurrentSlide($event)" :dots='false' :centerMode='true' :initialSlide='getSlide' class="allImg" ref="carousel">
+                <img class="prevImg" v-for="(img, indx) in backgrounds" :key="indx" :src="img">
             </agile>
     </div>
 </template>
@@ -68,7 +63,19 @@ export default {
     },
     data(){
         return{
-            blockBrowserBackAndFowards: 'INACTIVE'
+            blockBrowserBackAndFowards: 'INACTIVE',
+            backgrounds: [
+                'https://raw.githubusercontent.com/trekkspace/dbd-skillcheck-simulator/master/src/assets/backgrounds/b1.jpg',
+                'https://raw.githubusercontent.com/trekkspace/dbd-skillcheck-simulator/master/src/assets/backgrounds/b2.jpg',
+                'https://raw.githubusercontent.com/trekkspace/dbd-skillcheck-simulator/master/src/assets/backgrounds/fire.jpg',
+                'https://i.redd.it/3uh6nm8bg9f41.jpg',
+                'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/1ffb8d3f83682e63b1b0ea460cec4cf9d2660eec.jpg',
+                'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/c7706bb7d395142858df886f04140a0f2eb0a2a2.jpg',
+                'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/0aeb87af2751b7da7f1dcfc45602fa3f34a90bfb.jpg',
+                'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/c68e3ea0c64cccde4c90fc8c4e4103177bbb9b50.jpg',
+                'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/ba2c58e9246696c1e94c39f6aef83c68c2b418ed.jpg',
+                'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/f729ce379bd27db37b6e3170b4e1ba79b486bb5e.jpg'
+            ]
         }
     },
     methods:{
@@ -142,10 +149,16 @@ export default {
 
         // carousel
         showCurrentSlide (event) {
-            this.$store.state.playerSettings.background = event.currentSlide
+            this.$store.state.playerSettings.backgroundURL = this.backgrounds[event.currentSlide]
         },
-        getSlide(){
-            return this.$store.state.playerSettings.background
+        gSlide(){
+            for (let i = 0; i < this.backgrounds.length; i++) {
+                const element = this.backgrounds[i]
+                console.log(this.backgrounds[i])
+                if (element == this.$store.state.playerSettings.backgroundURL) {
+                    return i
+                }
+            }
         }
     },
     computed: {
@@ -166,6 +179,10 @@ export default {
         },
         bBack(){
             return this.$store.state.gameEvents.events.blockBrowserBackAndFowards
+        },
+        // eslint-disable-next-line vue/return-in-computed-property
+        getSlide(){
+            return this.gSlide()
         }
     }
 }
