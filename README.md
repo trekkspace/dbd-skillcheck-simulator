@@ -1,15 +1,15 @@
 !! This project has been taken from the now unmaintained official https://github.com/trekkspace/dbd-skillcheck-simulator  and updated to fit the new changes
 
-##Changelog
+## Changelog
 - Added Glyph mode
 - Added Custom and preset modes
 
-##Todo:
+## Todo:
 
 - Wiggle Skill Check
 - Add Brand new part
 
-##Issues:
+## Issues:
 
 - Glyph skill check might bug (investigating). User must reload the page
 
