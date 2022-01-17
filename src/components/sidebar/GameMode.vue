@@ -67,6 +67,8 @@ export default {
                     this.$store.state.gameStatus.killerPerks.hexRuin.active = true;
                     this.$store.state.gameStatus.killerPerks.unnervingPresence.active = true;
                     getSwitch(store.state.gameStatus.killerPerks.unnervingPresence, "tier").val=3;
+                    getSwitch(store.state.gameStatus.killerPerks.hexRuin, "tier").val=3;
+
                     break;
                 }
             }
@@ -132,7 +134,7 @@ export default {
 
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
     
-    background: var(--texture-two) center center var(--font-color-one);
+    background: var(--font-color-one);
     background-size: cover;
     background-blend-mode: multiply;
 }
@@ -158,10 +160,10 @@ export default {
         color: #ffffff !important;
     font-weight: 700 !important;
     letter-spacing: 2px;
-    background: var(--texture-two) !important;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.3s ease 0s;
+     background-color: #818181 !important;
 }
 
 </style>

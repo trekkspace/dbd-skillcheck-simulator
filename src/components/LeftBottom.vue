@@ -23,13 +23,13 @@
             <div v-else class="item-progress-bar">
                 <div :style="{height: `${itemCharges}%`}" class="left-item-progress-bar"></div>
             </div>
-            <img v-if="itemOn.toolbox.length > 0" class="addedToolbox" :src="require(`@/assets/items/low/${itemOn.toolbox[0].name}.png`)">
+            <img v-if="itemOn.toolbox.length > 0" class="addedToolbox" :src="require(`@/assets/items/high/${itemOn.toolbox[0].name}.webp`)">
             <div v-else class="addedToolbox"></div>
 
-            <img v-if="itemOn.addOns.length >= 1" class="addedAddOn1" :src="require(`@/assets/items/low/${itemOn.addOns[0].name}.png`)">
+            <img v-if="itemOn.addOns.length >= 1" class="addedAddOn1" :src="require(`@/assets/items/high/${itemOn.addOns[0].name}.webp`)">
             <div v-else class="addedAddOn1"></div>
 
-            <img v-if="itemOn.addOns.length >= 2" class="addedAddOn2" :src="require(`@/assets/items/low/${itemOn.addOns[1].name}.png`)">
+            <img v-if="itemOn.addOns.length >= 2" class="addedAddOn2" :src="require(`@/assets/items/high/${itemOn.addOns[1].name}.webp`)">
             <div v-else class="addedAddOn2"></div>
         </div>
     </div>
@@ -125,7 +125,7 @@ export default {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
     padding: 0.5rem;
 
-    background: var(--texture-one) center center var(--font-color-one);
+    background: var(--font-color-one);
     background-size: cover;
     background-blend-mode: multiply;
 }
@@ -138,7 +138,7 @@ export default {
     margin-bottom: .4vw;
     cursor: pointer;
 
-    background: var(--texture-one) center center var(--font-color-two);
+    background: var(--font-color-two);
     background-size: cover;
     background-blend-mode: multiply;
 }
@@ -191,7 +191,6 @@ export default {
     border-radius: 2px;
     background-position: center;
     /* background-repeat: no-repeat; */
-    background-image: url('../assets/backgrounds/texture4.png');
     background-position: top;
     background-size: cover;
     cursor: pointer;

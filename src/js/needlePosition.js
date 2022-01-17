@@ -11,7 +11,6 @@ import {skillcheckDS} from "@/js/skillchecks/ds";
 import {skillcheckGlyph} from "@/js/skillchecks/glyph";
 
 const handleScore = async () => {
-    console.log(store.state.gameEvents.events.skillcheck)
     if (store.state.gameEvents.events.skillcheck) {
 
 
@@ -28,8 +27,6 @@ const handleScore = async () => {
         if (store.state.gameStatus.now.gameMode=="glyph"){
             var timedif = new Date().getTime() - store.state.gameStatus.now.glyph.last ;
             timedif = parseInt(timedif);
-            console.log(timedif)
-
             if (timedif > (1100*5)){
                 glyphStop=true;
             }

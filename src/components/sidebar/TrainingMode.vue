@@ -3,9 +3,19 @@
       <h2 class="s-title">Killer Perks</h2>
       <hr>
         <div class="killer-perks-showcase">
-            <div @click='changeKillerPerk(perk)' class="killer-perk-box" v-for="(value, perk, index) in killerPerks" :key='index'>
-                <img class="training-killer-perks" :src="require(`@/assets/perks/killer/${value.icon}.png`)" alt="">
+            <div class="killer-perk-box" v-for="(value, perk, index) in killerPerks" :key='index'>
+                <img @click='changeKillerPerk(perk)' class="training-killer-perks" :src="require(`@/assets/perks/killer/${value.icon}.png`)" alt="">
                 <h2>{{ value.active ? 'ON': 'OFF' }}</h2>
+                <div v-for="sw in value.switches" :key="sw">
+                  <hr>
+                  <span class="text-option">{{sw.name}}</span><br><input v-if="sw.type == 'int'" class="perk-option"
+                         @input="set_value_killer(perk,sw.attr)"
+                         :placeholder="sw.val"
+                         :min="sw.from"
+                         :max="sw.to"
+                         :step="1"
+                         type="number">
+                </div>
             </div>
         </div>
       <h2 class="s-title">Survivor Perks</h2>
@@ -23,6 +33,7 @@
 
 //import store from "@/store/store";
 
+import {getSwitch} from "@/js/library/getSwitch";
 export default {
     computed: {
         killerPerks(){
@@ -38,6 +49,10 @@ export default {
         },
         changeSurvPerk(perk){
           this.$store.state.gameStatus.survivorPerks[perk].active = !this.$store.state.gameStatus.survivorPerks[perk].active
+        },
+        set_value_killer(key,opt) {
+          let inpValue = Number(event.target.value);
+          getSwitch(this.$store.state.gameStatus.killerPerks[key], opt).val=inpValue;
         }
     }
 }
@@ -48,6 +63,9 @@ export default {
 .training-killer-perks{
     width: 4vw;
     height: 4vw;
+}
+.text-option{
+  font-size: 10px;
 }
 .survivor-perks-showcase{
   display: grid;
@@ -76,5 +94,7 @@ export default {
 hr{
     margin-bottom: 1rem !important;
 }
-
+.perk-option{
+  width: 40px;
+}
 </style>

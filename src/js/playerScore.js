@@ -9,13 +9,13 @@ import store from '@/store/store'
 import {combo} from '@/js/combo.js'
 
 import {skillcheckSpawnCoordinates} from '@/js/drawSkillCheck.js'
+import {getSwitch} from "@/js/library/getSwitch";
 
 
 const score = (status) => {
     playTrack(status)
     // Decisive Strike SKILLCHECKS
     store.state.playerStats.latestGame[status] += 1
-    console.log(store.state.gameStatus.now.gameMode)
     switch (store.state.gameStatus.now.gameMode){
         case "glyph":
             var timedif = new Date().getTime() - store.state.gameStatus.now.glyph.last ;
@@ -34,11 +34,8 @@ const score = (status) => {
 
             }
             if (status != 'good') {
-                console.log(
-                    "bad"
-                )
                 store.state.playerStats.stats.glyphFailed += 1
-                dom.callbackComplete();
+                dom.callbackComplete(false);
                 playerRateStatus(['glyphGood', 'glyphFailed'], ['rateGlyphGood', 'rateGlyphFailed']);
 
             }
@@ -70,12 +67,31 @@ const score = (status) => {
         case "hard":
         case "custom":
             var points;
+            var isBrand = false;
+            if (store.state.gameStatus.item) {
+                const itemOn = store.state.playerItems.equipedItems
+                const addOns = itemOn.addOns
+                if (addOns.length > 0) {
+                    addOns.forEach(addOn => {
+                        if (addOn.name==="brandNewPart"){
+                            if (addOn.customProp.left>0){
+                                addOn.customProp.left--;
+                                isBrand = addOn.customProp.tickProgression;
+
+                            }
+                        }
+                    })
+                }
+            }
             if (status == 'great') {
                 // base points + 50 * combo points, starting from the second combo point
                 points = gameOptions[status] + (store.state.playerStats.stats.rowScore * 50)
                 combo(true)
                 // add bonus points in order to complete a generator 'x%' faster
-                if (!store.state.gameStatus.now.brokeGeneratorEffect && !store.state.gameStatus.now.brokeGeneratorEffectRunning && skillcheckSpawnCoordinates.mode !== 'hex') {
+                if (isBrand){
+                    store.state.gameStatus.now.charges += (isBrand / 100) * 80
+                }
+                if (!isBrand &&!store.state.gameStatus.now.brokeGeneratorEffect && !store.state.gameStatus.now.brokeGeneratorEffectRunning && skillcheckSpawnCoordinates.mode !== 'hex') {
                     store.state.gameStatus.now.charges += (2 / 100) * 80 // add 2% bonus
                 }
                 store.commit('updateObjectivePoints',
@@ -95,7 +111,7 @@ const score = (status) => {
 
             if (status == 'good') {
                 if (skillcheckSpawnCoordinates.mode == 'hex') {
-                    damageGenerator((5 / 100) * 80) // damage 5% from the generator
+                    damageGenerator(((getSwitch(store.state.gameStatus.killerPerks.hexRuin, "tier").val + 2)  / 100) * 80) // damage 5% from the generator
                 } else{
                     store.commit('updateObjectivePoints',
                         {

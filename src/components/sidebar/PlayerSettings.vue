@@ -223,9 +223,8 @@ export default {
 
 input{
     width: 10rem;
-    background: rgb(103, 238, 175);
+    background: #424242FF;
     border: none;
-    background: url('../../assets/backgrounds/texture13.png');
     border-radius: 2px;
     /* justify-self: end; */
     text-align: center;

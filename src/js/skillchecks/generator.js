@@ -53,7 +53,20 @@ const skillcheckGenerator = async (perkEffectActive={}) => {
             }
             if (store.state.gameStatus.item) {
                 props.successZoneSize += (store.state.gameStatus.item.successZone / 100) * 25
+                const itemOn = store.state.playerItems.equipedItems
+                const addOns = itemOn.addOns
+                if (addOns.length > 0) {
+                    addOns.forEach(addOn => {
+                        if (addOn.name==="brandNewPart"){
+                            if (addOn.customProp.left>0){
+                                props.successZoneSize = 0
+                                props.greatZoneSize = 15
+                            }
+                        }
+                    })
+                }
             }
+
 
             if (store.state.gameStatus.killerPerks.unnervingPresence.active && (typeof perkEffectActive.unnervingPresence == "undefined" || perkEffectActive.unnervingPresence.active)) {
                 props.successZoneSize -= ((getSwitch(store.state.gameStatus.killerPerks.unnervingPresence, "tier").val * 10 + 30) / 100) * props.successZoneSize;

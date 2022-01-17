@@ -3,17 +3,18 @@
 ## Changelog
 - Added Glyph mode
 - Added Custom and preset modes
+- Added Brand new part
+- Added customizable tokens and tiers
+- Added the new grade system
 
 ## Todo:
 
 - Wiggle Skill Check
-- Add Brand new part
-- Add the new grade system
-- Add customizable tokens and tiers 
+
 
 ## Issues:
 
-- Glyph skill check bug (investigating) after failure.
+- Glyph skill check bug (investigating) after failure. 
 
 
 # Dead by Daylight Skillcheck Simulator

@@ -6,7 +6,16 @@ const perks = {
             name: "[old] Hex: Ruin",
             mode:["hard"],
             icon: 'hexRuin',
-            switches:[]
+            switches:[
+                {
+                    type:"int",
+                    from:1,
+                    to:3,
+                    val:1,
+                    name:"Tier",
+                    attr:"tier"
+                }
+            ],
         },
         oppression: {
             name:"Opression / Overcharge",

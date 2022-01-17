@@ -141,14 +141,14 @@ export default {
     height: .8vw;
     width: .8vw;
 
-    background: var(--texture-tree) center center var(--font-color-one);
+    background: var(--font-color-one);
     background-size: cover;
     background-blend-mode: multiply;
 }
 
 .navigation{
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
-  background: var(--texture-tree) center center var(--font-color-two);
+  background: var(--font-color-two);
   background-size: cover;
   background-blend-mode: multiply;
 
@@ -170,7 +170,7 @@ export default {
 .template-border{
   background-color: #FFC2C2;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
-  background: var(--texture-tree) center center var(--font-color-two);
+  background: var(--font-color-two);
   background-size: cover;
   background-blend-mode: multiply;
   position: absolute;
@@ -206,12 +206,7 @@ export default {
 
 .simple-to{
 background-color: #8A9DDB;
-  background-position: center;
   /* background-repeat: no-repeat; */
-  background-size: cover;
-  background-image: url('../assets/backgrounds/texture3.png');
-  background-position: center;
-  background-size: cover;
   /* background-color: rgb(82, 190, 204); */
   color:aliceblue;
   padding: 0.01em;
@@ -234,8 +229,6 @@ background-color: #8A9DDB;
   width: 30vw;
   height: 25vw;
   color: white;
-
-  background: url('../assets/backgrounds/texture11.png') center center rgb(78, 78, 78);
   background-size: cover;
   background-blend-mode: multiply;
 }

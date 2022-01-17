@@ -10,7 +10,8 @@
 
             
             <div class="rank-score">
-                <img :src="require(`@/assets/rank/rank${rankIcon}.png`)" class="top-status-img" alt="">
+                <img :src="require(`@/assets/rank/${rankIcon}.webp`)" class="top-status-img" alt="">
+                <h2 class="rank-score-status rank-string">{{ rankScore }}</h2>
             </div>
 
         </div>
@@ -91,9 +92,24 @@
 
       rankIcon(){
         const rankPoints = this.$store.state.playerStats.stats.rankPoints
-        // 20 - base rank icon, 4 - pip's required for each rank up
-        const rankIcon = 20 - (rankPoints / 4)
-        return rankIcon <= 1 ? 1 : rankIcon % 1 == 0 ? rankIcon : Math.ceil(rankIcon)
+        var rankGrade = parseInt(rankPoints/4);
+        return rankGrade.toString()
+      },
+      rankScore(){
+        const rankPoints = this.$store.state.playerStats.stats.rankPoints
+        var rankGrade = parseInt(rankPoints % 4);
+        switch (rankGrade){
+          case 0:
+            return "I";
+          case 1:
+            return "II"
+          case 2:
+            return "III"
+          case 3:
+            return "IV"
+          default:
+            return "V"
+        }
       },
       menu(){
           return this.$store.state.gameEvents.events
@@ -169,14 +185,19 @@
 }
 .rank-score-status {
     position: absolute;
-    top: 45%;
-    left: 50%;
+    top: 50%;
+    left: 47%;
     transform: translate(-45%, -50%);
     /* display: flex; */
     /* justify-self: center; */
     justify-content: center;
 }
-
+.rank-string{
+  font-family: "Quattrocento", sans-serif;
+  font-size: 2.7rem !important;
+  width: 4rem;
+  text-align: center;
+}
 
 .rank-bloodpoints-img{
     height: 3rem;

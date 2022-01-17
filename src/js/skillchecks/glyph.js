@@ -36,8 +36,7 @@ const skillcheckGlyph = async (now=0,stop=false) => {
 
             ranEl.style.top = '50%'
             ranEl.style.left = '50%'
-            props.callbackComplete = function () {
-                console.log("complete")
+            props.callbackComplete = function (end=true) {
                 store.commit('updateGameStatus', [{
                     state: 'events',
                     event: "skillcheck",
@@ -45,7 +44,9 @@ const skillcheckGlyph = async (now=0,stop=false) => {
                 }])
                 store.state.gameStatus.now.glyph.start = false;
                 removeSkillCheck()
-                skillcheckGlyph();
+                if (end){
+                    skillcheckGlyph();
+                }
 
             };
             await drawGlyphSkillCheck(props);
