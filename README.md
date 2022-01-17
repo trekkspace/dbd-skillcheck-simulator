@@ -26,7 +26,7 @@ Visit https://dbd.lucaservers.com to play.
 
 The Killer Perks can be activated/dezactivated using **CUSTOM** mode from the **GAME MODE** menu. Selecting **CUSTOM** mode, will activate the selected perks at the maximum tier or at the maximum number of tokens(Hex: Huntress Lullaby). 
 There are 3 preset mode **EASY** **MEDIUM** **HARD**
-####Killer perks:
+#### Killer perks:
   - Hex: Ruin - **Version 2.6.0** *(got nurfed in **Version 3.5.0**)* 
     - Good Skill Checks result in 3/4/5 % regression on the Generator.
     - Great Skill Checks grant 0 % bonus progression on the Generator.
@@ -37,7 +37,7 @@ There are 3 preset mode **EASY** **MEDIUM** **HARD**
     - Triggered Skill Checks' success zones are reduced by 40/50/60 %. 
   - Oppression
     - An hard Skill Check is made after killer kicks a generator
-####Survivor perks:
+#### Survivor perks:
   -This is not happening
     -Increase the great area when injured 
 
