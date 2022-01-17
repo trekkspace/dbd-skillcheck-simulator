@@ -11,7 +11,6 @@ import {handleScore} from "@/js/needlePosition";
 
 
 const skillcheckGenerator = async (perkEffectActive={}) => {
-    console.log("Generator")
     const gameStatusValid = () => {
         return store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame
     }
@@ -46,7 +45,6 @@ const skillcheckGenerator = async (perkEffectActive={}) => {
 
             if (store.state.gameStatus.killerPerks.huntressLullaby.active) {
                 const huntressLullabyCurrentTokens = getSwitch(store.state.gameStatus.killerPerks.huntressLullaby, "tokens").val;
-                console.log(huntressLullabyCurrentTokens)
                 if (huntressLullabyCurrentTokens > 0 && huntressLullabyCurrentTokens < 5) {
                     props.timeAudioDelay = ((500 - (((14 * huntressLullabyCurrentTokens) / 100) * 500)));
                 } else if (huntressLullabyCurrentTokens == 5) {

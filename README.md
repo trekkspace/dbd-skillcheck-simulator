@@ -8,10 +8,12 @@
 
 - Wiggle Skill Check
 - Add Brand new part
+- Add the new grade system
+- Add customizable tokens and tiers 
 
 ## Issues:
 
-- Glyph skill check might bug (investigating). User must reload the page
+- Glyph skill check bug (investigating) after failure.
 
 
 # Dead by Daylight Skillcheck Simulator
