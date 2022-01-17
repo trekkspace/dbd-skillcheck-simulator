@@ -8,7 +8,6 @@ import {skillCheckAnimation, removeSkillCheck} from '@/js/skillchecks/dom/skillC
 import {drawClassicSkillCheck} from '@/js/skillchecks/drawer/classic'
 
 const skillcheckDS = async () => {
-    console.log("Ds")
     const gameStatusValid = () => {
         return store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame
     }
