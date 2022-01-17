@@ -39,7 +39,7 @@ There are 3 preset mode **EASY** **MEDIUM** **HARD**
     - An hard Skill Check is made after killer kicks a generator
 #### Survivor perks:
   - This is not happening
-    - Increase the great area when injured 
+    - Increase the great area when injured  
 
 ## Toolboxes 
 The Toolbox is an item that can be used to repair generators more quickly. Different Toolboxes have different uses and not all of them are good for both uses. Add-ons can be equipped to enhance their speed and durability. Toolboxes and add-ons can be bought with bloodpoints. You can gain bloodpoins fast by hitting great skillchecks multiple times. You can gain free Bloodpoints by finding the secret :)
