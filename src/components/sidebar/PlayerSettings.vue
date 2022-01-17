@@ -41,7 +41,7 @@
 
         <h1 class="s-title">Backgrounds</h1>
         <hr>            
-            <agile @afterChange="showCurrentSlide($event)" :dots='false' :centerMode='true' :initialSlide='getSlide' class="allImg" ref="carousel">
+            <agile @after-change="showCurrentSlide($event)" :dots='false' :centerMode='true' :initialSlide='getSlide' class="allImg" ref="carousel">
                 <img class="prevImg" v-for="(img, indx) in backgrounds" :key="indx" :src="img">
             </agile>
     </div>
@@ -68,7 +68,6 @@ export default {
                 'https://raw.githubusercontent.com/trekkspace/dbd-skillcheck-simulator/master/src/assets/backgrounds/b1.jpg',
                 'https://raw.githubusercontent.com/trekkspace/dbd-skillcheck-simulator/master/src/assets/backgrounds/b2.jpg',
                 'https://raw.githubusercontent.com/trekkspace/dbd-skillcheck-simulator/master/src/assets/backgrounds/fire.jpg',
-                'https://i.redd.it/3uh6nm8bg9f41.jpg',
                 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/1ffb8d3f83682e63b1b0ea460cec4cf9d2660eec.jpg',
                 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/c7706bb7d395142858df886f04140a0f2eb0a2a2.jpg',
                 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/0aeb87af2751b7da7f1dcfc45602fa3f34a90bfb.jpg',
@@ -112,6 +111,9 @@ export default {
             // console.log(`min val ${minVal} - max val ${maxVal} - val ${playerOptions[key].value}`)
 
         },
+        changeBg(e){
+          console.log(e)
+        },
         allowMouseException(){
 
             if (this.$store.state.gameEvents.events.blockBrowserBackAndFowards == 'ACTIVE') {
@@ -149,6 +151,7 @@ export default {
 
         // carousel
         showCurrentSlide (event) {
+             console.log("t",event)
             this.$store.state.playerSettings.backgroundURL = this.backgrounds[event.currentSlide]
         },
         gSlide(){

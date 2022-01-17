@@ -6,7 +6,7 @@ import store from '@/store/store'
 
 import {stopButtonAnimation} from '@/js/animations/buttons/stopButtonAnim'
 import {generatorProgressOutAnimation} from '@/js/animations/generatorAnim'
-import {removeSkillCheck} from '@/js/animations/skillcheck/skillCheckAnim'
+import {removeSkillCheck} from '@/js/skillchecks/dom/skillCheckAnim'
 import {rank} from '@/js/rank.js'
 
 

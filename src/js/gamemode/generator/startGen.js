@@ -1,9 +1,8 @@
-import {skillcheckGeneration} from '@/js/skillcheckGeneration.js'
+import {skillcheckGenerator} from '@/js/skillchecks/generator'
 // import {gameOptions} from '@/js/status/options'
-import {runGenerator} from '@/js/generator/runGen'
+import {runGenerator} from '@/js/gamemode/generator/runGen'
 import {generatorProgressInAnimation} from '@/js/animations/generatorAnim'
 
-import {generateKillerPerks} from '@/js/perks'
 import store from '@/store/store'
 
 const startGenerator = () => {
@@ -37,17 +36,13 @@ const startGenerator = () => {
         store.state.gameStatus.now.generatorsLeft= 2
         store.state.gameStatus.now.charges = 0
 
-        if (store.state.gameStatus.now.gameMode == 'normal') {
-            generateKillerPerks()
-        }
-
         Object.keys(store.state.playerStats.latestGame).forEach(key => {
             store.state.playerStats.latestGame[key] = 0
         }) // reset latestGame points
         store.state.gameStatus.now.generatorStoped = false
 
         runGenerator() // to create
-        skillcheckGeneration()
+        skillcheckGenerator()
         generatorProgressInAnimation()
     }
 }

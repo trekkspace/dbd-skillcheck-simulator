@@ -87,7 +87,7 @@ export default {
   },
   computed:{
       leftTemplate(){
-        if (this.center == 'GameMode' && this.$store.state.gameStatus.now.gameMode == 'training') {
+        if (this.center == 'GameMode' && this.$store.state.gameStatus.now.gameMode == 'custom') {
             return TrainingMode
           }else if(this.center == 'PlayerInventory'){
             return EquipItems
@@ -183,21 +183,6 @@ export default {
   width: 20vw;
 }
 
-.item-showcase-border{
-  background-color: #FFC2C2;
-
-  background: var(--texture-tree) center center var(--font-color-two);
-  background-size: cover;
-  background-blend-mode: multiply;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
-  z-index: -1;
-  top: -.5vw;
-  height: 11vw;
-  width: 16vw;
-}
 
 .navigation-items{
   display: flex;
@@ -261,11 +246,11 @@ background-color: #8A9DDB;
   border-bottom-right-radius: 2px;
   position: absolute;
   padding: 0px 2vw;
-  right: -20vw;
-  width: 20vw;
-  height: 10vw;
-  background: #242323;
-  background: url('../assets/backgrounds/texture11.png') center center rgb(83, 83, 83);
+  right: -27vw;
+  width: 28vw;
+  height: auto;
+  padding: 3vw;
+  background-color: #3f3f3f;
   background-blend-mode: multiply;
 }
 

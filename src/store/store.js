@@ -9,7 +9,7 @@ import gameEvents from './modules/gameEvents'
 import gameNotifications from './modules/gameNotifications'
 import gameStatus from './modules/gameStatus'
 
-const localStorageKey = 'trekkspaceLocalStorage'
+const localStorageKey = 'sessionStorage'
 
 Vue.use(Vuex)
 
@@ -17,7 +17,7 @@ const vuexLocalStorage = new VuexPersist({
   supportCircular: true,
   key: localStorageKey,
   storage: window.localStorage,
-  modules: ['playerStats','playerItems', 'playerSettings']
+  modules: ['playerStats','playerItems', 'playerSettings',/*'gameStatus','gameEvents'*/]
 })
 
 

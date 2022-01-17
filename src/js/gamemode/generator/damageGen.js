@@ -2,7 +2,7 @@ import {gameOptions} from '@/js/status/options.js'
 
 import * as ffs from '@/js/library/math.js'
 
-import {runGenerator} from '@/js/generator/runGen.js'
+import {runGenerator} from '@/js/gamemode/generator/runGen.js'
 import store from '@/store/store'
 
 const damageGenerator = async (penalty) => {

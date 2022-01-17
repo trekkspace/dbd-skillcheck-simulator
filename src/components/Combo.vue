@@ -3,7 +3,6 @@
             <p class="combo-text">Combo</p>
             <div id='id1' class="combo-status">
                 <img src="@/assets/icons/buff_combo.png" alt="">
-                <!-- <img v-else src="@/assets/icons/debuff_combo.png" alt=""> -->
                 <h2 class="combo-status-score">{{ row }}</h2>
             </div>
     </div>

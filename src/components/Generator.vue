@@ -7,7 +7,6 @@
             <div class="progress-elemens-position">
                 <div ref="progress-bar" class="progress-bar">
                     <div :style="{ width: generatorStatus + '%' }" :class="[toolboxOn ? 'progress-bar-bonus-left' : 'progress-bar-completed']"></div>
-                    <div :style="{ width: (100 - generatorStatus) + '%' }" class="progress-bar-left"></div>
                 </div>
             </div>
 
@@ -77,32 +76,31 @@ export default {
     text-align: center;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
 
-    background: var(--texture-one) center center var(--font-color-two);
+    background: rgba(27, 27, 27, 0.33);
     background-size: cover;
     background-blend-mode: multiply;
+    width: 25vw;
+    border-radius: 4px;
 }
 
 .progress-bar{
-    height: 2.5rem;
-    width: 25rem;
-    background: #355284;
+    height: 1.3rem;
+    width: 40rem;
+    background-color: #525252;
     display: flex;
-    padding: .4rem;
-    border-radius: 2px;
+    padding: .3rem;
+    border-radius: 4px;
+    background-image: url("../assets/backgrounds/asfalt-dark.png");
+    margin: 0 auto;
 }
 
 .progress-bar-completed{
-    background: #EFE81A;
+    background-color: #ababab;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
     width: 0%;
-}
+    background-image: url("../assets/backgrounds/asfalt-dark.png");
 
-.progress-bar-left, .progress-bar-bonus-left{
-    background: #842CE9;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;        
-    width: 100%;
 }
 
 .progress-bar-bonus-left{
@@ -120,7 +118,7 @@ export default {
 .repair-message{
     font-size: 2rem;
     margin-bottom: 1rem;
-    width: 15vw;
+    width: 25vw;
     padding: .1vw 0;
     border-radius: 2px;
     text-align: center;

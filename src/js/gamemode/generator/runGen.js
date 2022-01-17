@@ -2,7 +2,7 @@ import {gameOptions} from '@/js/status/options.js'
 import * as ffs from '@/js/library/math.js'
 import store from '@/store/store'
 
-import {stopGenerator} from '@/js/generator/stopGen.js'
+import {stopGenerator} from '@/js/gamemode/generator/stopGen.js'
 
 
 import {notification} from '@/js/library/use'
