@@ -11,6 +11,7 @@
     "animejs": "^3.2.1",
     "circular-json": "^0.5.9",
     "core-js": "^3.20.3",
+    "marked": "^4.0.10",
     "simplebar-vue": "^1.6.8",
     "velocity-animate": "^1.5.2",
     "vue": "^2.6.14",

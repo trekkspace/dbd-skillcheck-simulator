@@ -23,7 +23,7 @@ const checkLocked = () => {
 
 const checkMenu = () => {
     if (store.state.gameEvents.events.menu) {
-       store.state.gameEvents.events.menu = !store.state.gameEvents.events.menu
+       //store.state.gameEvents.events.menu = !store.state.gameEvents.events.menu
     }
 }
 

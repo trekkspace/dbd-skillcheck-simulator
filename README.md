@@ -46,55 +46,7 @@ There are 3 preset mode **EASY** **MEDIUM** **HARD**
 
 ## Toolboxes 
 The Toolbox is an item that can be used to repair generators more quickly. Different Toolboxes have different uses and not all of them are good for both uses. Add-ons can be equipped to enhance their speed and durability. Toolboxes and add-ons can be bought with bloodpoints. You can gain bloodpoins fast by hitting great skillchecks multiple times. You can gain free Bloodpoints by finding the secret :)
-- ### Items
-  - Worn-Out Tools
-    - 80 charges  
-    -    Moderately increases repair speed
-    -    Slightly decreases Skill Check success zones
-  - Toolbox (Item)
-    -    130 charges
-    -    Moderately increases repair speed
-    -    Slightly decreases Skill Check success zones
-  - Mechanic's Toolbox
-    -    80 charges
-    -    Considerably increases repair speed.
-  - Commodious Toolbox
-    -    180 charges.
-    -    Moderately increases repair speed
-  - Engineer's Toolbox
-    -    80 charges.
-    -    Tremendously increases repair speed.
-  - Alex's Toolbox
-    -    130 charges.
-    -    Slightly increases repair speed.
-- ### Add-ons
-  - Spring Clamp
-    - Slightly increases repair Skill Check success zones.
-    - Stacks: No.
-  - Scraps
-    - Adds 15 charges to the Toolbox.
-    - Stacks: Yes.
-  - Clean Rag
-    - Slightly increases the Toolbox's repair speed.
-    - Stacks: Yes.
-  - Wire Spool
-    - Adds 30 charges to the Toolbox.
-    - Stacks: Yes.
-  - Socket Swivels
-    - Moderately increases the Toolbox repair speed.
-    - Stacks: Yes.
-  - Protective Gloves *(doesn't affect the generator)*
-    - Stacks: Yes.
-  - Instructions
-    - Moderately increases the Toolbox's repair efficiency.
-    - Stacks: Yes.
-  - Grip Wrench
-    - Moderately increases repair Skill Check success zones.
-    - Stacks: Yes.
-  - Cutting Wire *(doesn't affect the generator)*
-    - Stacks: No.
-  - Hacksaw *(doesn't affect the generator)*
-    - Stacks: Yes.
+
 
 ## Local Installation
 
