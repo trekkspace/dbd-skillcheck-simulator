@@ -39,12 +39,6 @@ import ActiveKillerPerks from './components/ActiveKillerPerks.vue'
 // eslint-disable-next-line no-unused-vars
 import * as events from '@/js/events/keyboardEvents.js'
 
-import Img1 from '@/assets/backgrounds/fire.jpg'
-import Img2 from '@/assets/backgrounds/meg.jpg'
-import Img3 from '@/assets/backgrounds/astronomy.jpg'
-import Img4 from '@/assets/backgrounds/b1.jpg'
-import Img5 from '@/assets/backgrounds/b2.jpg'
-import Img6 from '@/assets/backgrounds/b3.jpg'
 
 
 export default {
@@ -65,16 +59,7 @@ export default {
   },
   computed: {
       image(){
-          let img = {
-              0: Img1,
-              1: Img2,
-              2: Img3,
-              3: Img4,
-              4: Img5,
-              5: Img6
-          }
-
-          return img[this.$store.state.playerSettings.background]
+          return this.$store.state.playerSettings.backgroundURL
       }
   }
 }
@@ -107,11 +92,8 @@ body{
     --skillcheck-button-border: 1.5px solid #ffffff;
     --skillcheck-button-color: #ffffff;
     --general-stats-color: #ffffff;
-    --font-color-one: #91e4c8;
-    --font-color-two: #a5acaa;
-    --texture-one: url('../src/assets/backgrounds/texture20.png');
-    --texture-two: url('../src/assets/backgrounds/texture15.png');
-    --texture-tree: url('../src/assets/backgrounds/texture2.png')
+    --font-color-one: #3f3f3f;
+    --font-color-two: rgba(152, 152, 152, 0.43);
 }
 
 .background{

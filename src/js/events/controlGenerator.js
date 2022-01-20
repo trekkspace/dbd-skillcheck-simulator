@@ -1,8 +1,8 @@
 import store from '@/store/store'
 
-import {startGenerator as startGen} from '@/js/generator/startGen.js'
-import {runGenerator as runGen} from '@/js/generator/runGen.js'
-import {stopGenerator as stopGen} from '@/js/generator/stopGen.js'
+import {startGenerator as startGen} from '@/js/gamemode/generator/startGen.js'
+import {runGenerator as runGen} from '@/js/gamemode/generator/runGen.js'
+import {stopGenerator as stopGen} from '@/js/gamemode/generator/stopGen.js'
 import {skillcheckGeneration} from '@/js/skillcheckGeneration.js'
 
 

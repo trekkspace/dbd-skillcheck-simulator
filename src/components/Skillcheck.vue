@@ -12,7 +12,7 @@
 
 <script>
 
-  import {initDom} from '@/js/domElements'
+  import {initDom} from '@/js/skillchecks/dom/domElements'
   import keyCodes from '@/js/events/keyboard.js'
   import mouseCodes from '@/js/events/mouse.js'
 

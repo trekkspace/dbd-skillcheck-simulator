@@ -1,5 +1,5 @@
 <template>
-    <div class="top-score">
+    <div class="div-score">
 
       
         <div  ref="game-rank-bloodpoints" class="rank-bloodpoints">
@@ -10,35 +10,38 @@
 
             
             <div class="rank-score">
-                <img :src="require(`@/assets/rank/rank${rankIcon}.png`)" class="top-status-img" alt="">
-                <h2 class="rank-score-status">{{ rankIcon }}</h2>
+                <img :src="require(`@/assets/rank/${rankIcon}.webp`)" class="top-status-img" alt="">
+                <h2 class="rank-score-status rank-string">{{ rankScore }}</h2>
             </div>
 
         </div>
 
-        <div :class="[menu.menu ? 'opacity-all': 'opacity-gone']">
+        <div class="skillchecks">
 
         
-        <div ref="skill-check-rate" :class="[gamemode == 'ds' ? 'rate-ds-skillchecks': 'rate-normal-skillchecks']">
-
+        <div ref="skill-check-rate" :class="[gamemode == 'ds' || gamemode=='glyph'  ? 'rate-ds-skillchecks': 'rate-normal-skillchecks']" >
             <div>
-
-                <!-- <h2 class="rate-skill-title">Great</h2> -->
-
+                <h2 class="rate-skill-title">Great</h2>
                 <div class="great-skill-rate-icon">
                     <div class="great-skill-color skill-color-size">
                         <div class="over-rate-background"></div>
                     </div>
-                    <div class="skill-rate-score">{{ gamemode == 'ds'? playerScore.rateDsEscape : playerScore.rateGreatScore }}</div>
+                    <div class="skill-rate-score" v-if="gamemode=='ds'">{{playerScore.rateDsEscape }}</div>
+                    <div class="skill-rate-score" v-else-if="gamemode=='glyph'">{{playerScore.rateGlyphGood }}</div>
+                    <div class="skill-rate-score" v-else>{{playerScore.rateGreatScore }}</div>
+
                 </div>
 
-                <h3 class="rate-score">{{ gamemode == 'ds' ? playerScore.dsEscape : playerScore.greatScore }}</h3>
+                <h3 class="rate-score" v-if="gamemode=='ds'">{{ playerScore.dsEscape  }}</h3>
+                <h3 class="rate-score" v-else-if="gamemode=='glyph'">{{ playerScore.glyphGood  }}</h3>
+                <h3 class="rate-score" v-else>{{ playerScore.greatScore }}</h3>
+
             </div>
 
 
-            <div v-if="gamemode !== 'ds'">
+            <div v-if="gamemode !== 'ds' && gamemode !== 'glyph'">
 
-                <!-- <h2 class="rate-skill-title">Good</h2> -->
+                <h2 class="rate-skill-title">Good</h2>
 
                 <div class="great-skill-rate-icon">
                     <div class="good-skill-color skill-color-size">
@@ -53,18 +56,21 @@
 
             <div>
 
-                <!-- <h2 class="rate-skill-title">Failed</h2> -->
+                <h2 class="rate-skill-title">Miss</h2>
 
 
                 <div class="great-skill-rate-icon">
                     <div class="fail-skill-color skill-color-size">
                         <div class="over-rate-background"></div>
                     </div>
-                    <div class="skill-rate-score">{{ gamemode == 'ds' ? playerScore.rateDsFailed : playerScore.rateFailedScore }}</div>
+                    <div class="skill-rate-score" v-if="gamemode=='ds'">{{playerScore.rateDsFailed }}</div>
+                    <div class="skill-rate-score" v-else-if="gamemode=='glyph'">{{playerScore.rateGlyphFailed }}</div>
+                    <div class="skill-rate-score" v-else>{{playerScore.rateFailedScore }}</div>
                 </div>
 
-
-                <h3 class="rate-score">{{ gamemode == 'ds'? playerScore.dsFailed : playerScore.failedScore }}</h3>
+              <h3 class="rate-score" v-if="gamemode=='ds'">{{ playerScore.dsFailed  }}</h3>
+              <h3 class="rate-score" v-else-if="gamemode=='glyph'">{{ playerScore.glyphFailed  }}</h3>
+              <h3 class="rate-score" v-else>{{ playerScore.failedScore }}</h3>
             </div>
         </div>
         </div>
@@ -86,9 +92,24 @@
 
       rankIcon(){
         const rankPoints = this.$store.state.playerStats.stats.rankPoints
-        // 20 - base rank icon, 4 - pip's required for each rank up
-        const rankIcon = 20 - (rankPoints / 4)
-        return rankIcon <= 1 ? 1 : rankIcon % 1 == 0 ? rankIcon : Math.ceil(rankIcon)
+        var rankGrade = parseInt(rankPoints/4);
+        return rankGrade.toString()
+      },
+      rankScore(){
+        const rankPoints = this.$store.state.playerStats.stats.rankPoints
+        var rankGrade = parseInt(rankPoints % 4);
+        switch (rankGrade){
+          case 0:
+            return "I";
+          case 1:
+            return "II"
+          case 2:
+            return "III"
+          case 3:
+            return "IV"
+          default:
+            return "V"
+        }
       },
       menu(){
           return this.$store.state.gameEvents.events
@@ -105,23 +126,14 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 /* hard position */
-.top-score {
+.div-score {
     position: absolute;
-    top: 2%;
+    bottom: 2%;
     right: 2%;
+    height: 96%;
 
 }
 
-.opacity-gone{
-    transition: 400ms;
-    opacity: 1;
-}
-
-.opacity-all{
-    transition: 400ms;
-    opacity: 0;
-    transform: translateY(5vw);
-}
 
 .rank-bloodpoints-status{
     display: grid;
@@ -136,21 +148,13 @@
     justify-content: end;
     grid-gap: 2.2rem;
     grid-template-columns: 16rem 8rem;
+    border-radius: 4px;
 
     
 }
 
 .rank-bloodpoints, .rate-ds-skillchecks, .rate-normal-skillchecks{
-    width: 17.5vw;
-    padding: 0px 1rem;
-    border-radius: 4px;
-    background: rgba(56, 56, 56, .5);
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-
-    background: var(--texture-one) center center var(--font-color-two);
-    background-size: cover;
-    background-blend-mode: multiply;
-    
+    width: 17.5vw
 }
 
 .rank-bloodpoints{
@@ -168,17 +172,32 @@
     width: fit-content;
     
 }
-
+.skillchecks{
+  position: absolute;
+  bottom: 0;
+  padding: 0px 1rem;
+  border-radius: 4px;
+  background: rgba(56, 56, 56, .5);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  background: var(--font-color-two);
+  background-size: cover;
+  background-blend-mode: multiply;
+}
 .rank-score-status {
     position: absolute;
-    top: 45%;
-    left: 50%;
+    top: 50%;
+    left: 47%;
     transform: translate(-45%, -50%);
     /* display: flex; */
     /* justify-self: center; */
     justify-content: center;
 }
-
+.rank-string{
+  font-family: "Quattrocento", sans-serif;
+  font-size: 2.7rem !important;
+  width: 4rem;
+  text-align: center;
+}
 
 .rank-bloodpoints-img{
     height: 3rem;
@@ -186,12 +205,12 @@
 }
 
 .bloodpoints-score, .rank-score-status{
-    font-size: 1.7rem;
+    font-size: 2.2rem;
     color: var(--general-stats-color);
 }
 
 .bloodpoints-score{
-    margin-top: .5rem;
+    margin-top: .2rem;
 }
 .rank-score {
     align-self: center;
@@ -207,18 +226,18 @@
 }
 
 .great-skill-color {
-    background: #72FA76;
-    border: .6rem solid #90FC93;
+    background: #04b608;
+    border: .6rem dashed #07860b;
 }
 
 .good-skill-color {
-    background: #80D5FF;
-    border: .6rem solid #99D2EF;
+    background: #2f61e0;
+    border: .6rem dashed #1943e5;
 }
 
 .fail-skill-color {
-    background: #DD6B82;
-    border: .6rem solid #EF9DAE;
+    background: #f60f0f;
+    border: .6rem dashed #c50026;
 }
 
 .over-rate-background {
@@ -230,7 +249,6 @@
     left: 0px;
     height: 8rem;
     width: 8rem;
-    background: url('../assets/backgrounds/texture5.png') no-repeat;
 }
 
 .great-skill-rate-icon {
@@ -255,7 +273,7 @@
     display: grid;
     grid-template-columns: repeat(3, 8rem);
     grid-gap: 2rem;
-    justify-content: flex-end;
+    justify-content: center;
     text-align: center;
 }
 
@@ -282,6 +300,6 @@
 
 .rate-normal-skillchecks, .rate-ds-skillchecks {
     padding-top: 1rem;
-    margin-top: 1rem;
+  padding-bottom: 1rem;
 }
 </style>

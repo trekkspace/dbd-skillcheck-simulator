@@ -39,7 +39,6 @@ document.addEventListener('mousedown', e => {
 })
 
 document.addEventListener('keypress', key => {
-    // console.log(key)
     if (checkKeyChar(key.key) == store.state.playerSettings.keyboard.skillCheckKey && store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame) {
         handleScore()
     }

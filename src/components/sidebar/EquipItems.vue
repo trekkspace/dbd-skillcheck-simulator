@@ -4,17 +4,17 @@
         <hr>
         <div class="items-equiped">
             <div v-if="itemOn.toolbox.length > 0">
-                <img @click="getDownToolbox(itemOn.toolbox[0].name)" class="toolbox-equiped" :src="require(`@/assets/items/low/${itemOn.toolbox[0].name}.png`)">
+                <img @click="getDownToolbox(itemOn.toolbox[0].name)" class="toolbox-equiped" :src="require(`@/assets/items/high/${itemOn.toolbox[0].name}.webp`)">
             </div>
             <div v-else class="toolbox-equiped"></div>
 
             <div @click="getDownAddOns(0, itemOn.addOns[0].name)" v-if="itemOn.addOns.length >= 1">
-                <img  class="add-on-equiped" :src="require(`@/assets/items/low/${itemOn.addOns[0].name}.png`)">
+                <img  class="add-on-equiped" :src="require(`@/assets/items/high/${itemOn.addOns[0].name}.webp`)">
             </div>
             <div v-else class="add-on-equiped"></div>
 
             <div @click="getDownAddOns(1, itemOn.addOns[1].name)" v-if="itemOn.addOns.length >= 2">
-                <img class="add-on-equiped" :src="require(`@/assets/items/low/${itemOn.addOns[1].name}.png`)">
+                <img class="add-on-equiped" :src="require(`@/assets/items/high/${itemOn.addOns[1].name}.webp`)">
             </div>
             <div v-else class="add-on-equiped"></div>
         </div>
@@ -95,7 +95,7 @@ export default {
 }
 
 .items-equiped div{
-      background: url('../../assets/backgrounds//texture4.png') center center var(--font-color-two);
+      background: var(--font-color-two);
   background-size: cover;
   background-blend-mode: multiply;
 }

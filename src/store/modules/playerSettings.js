@@ -14,7 +14,7 @@ const state = {
         skillCheckKey: 2 // M2 // stopNeedleKey
     },
     custom: playerOptions,
-    backgroundURL: "https://raw.githubusercontent.com/trekkspace/dbd-skillcheck-simulator/master/src/assets/backgrounds/b1.jpg",
+    backgroundURL: "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/1ffb8d3f83682e63b1b0ea460cec4cf9d2660eec.jpg",
 }
 
 export default {

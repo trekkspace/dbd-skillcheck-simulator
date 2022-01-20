@@ -11,23 +11,25 @@
     <!-- // generators left and items equiped -->
     <div class="leftBottom">
 
-        <h2 :class="[gameStatus.generatorsLeft > 0  && gameStatus.gameMode !== 'ds' ? 'generators-left' : 'generators-left-inv' ]">{{ gameStatus.generatorsLeft}}</h2>
+        <h2 :class="[gameStatus.generatorsLeft > 0  && !['ds','glyph','wiggle'].includes(gameStatus.gameMode) ? 'generators-left' : 'generators-left-inv' ]">{{ gameStatus.generatorsLeft}}</h2>
         <img v-if="gameStatus.gameMode == 'ds'" class="generator-icon" src="@/assets/icons/decisiveStrike.png" alt="">
+        <img v-else-if="gameStatus.gameMode == 'glyph'" class="generator-icon" src="@/assets/icons/glyph.png" alt="">
+        <img v-else-if="gameStatus.gameMode == 'wiggle'" class="generator-icon" src="@/assets/icons/wiggle.png" alt="">
         <img v-else-if="gameStatus.generatorsLeft > 0" class="generator-icon" src="@/assets/icons/generator.png" alt="">
         <img v-else class="generator-icon" src="@/assets/icons/exitGates.png" alt="">
 
-        <div class="addedTools">
+        <div class="addedTools" v-if="!['ds','glyph','wiggle'].includes(gameStatus.gameMode)">
             <div v-if="itemCharges == 0 || !gameStarted.generatorStarted" style="background: transparent;" class="item-progress-bar"></div>
             <div v-else class="item-progress-bar">
                 <div :style="{height: `${itemCharges}%`}" class="left-item-progress-bar"></div>
             </div>
-            <img v-if="itemOn.toolbox.length > 0" class="addedToolbox" :src="require(`@/assets/items/low/${itemOn.toolbox[0].name}.png`)">
+            <img v-if="itemOn.toolbox.length > 0" class="addedToolbox" :src="require(`@/assets/items/high/${itemOn.toolbox[0].name}.webp`)">
             <div v-else class="addedToolbox"></div>
 
-            <img v-if="itemOn.addOns.length >= 1" class="addedAddOn1" :src="require(`@/assets/items/low/${itemOn.addOns[0].name}.png`)">
+            <img v-if="itemOn.addOns.length >= 1" class="addedAddOn1" :src="require(`@/assets/items/high/${itemOn.addOns[0].name}.webp`)">
             <div v-else class="addedAddOn1"></div>
 
-            <img v-if="itemOn.addOns.length >= 2" class="addedAddOn2" :src="require(`@/assets/items/low/${itemOn.addOns[1].name}.png`)">
+            <img v-if="itemOn.addOns.length >= 2" class="addedAddOn2" :src="require(`@/assets/items/high/${itemOn.addOns[1].name}.webp`)">
             <div v-else class="addedAddOn2"></div>
         </div>
     </div>
@@ -123,7 +125,7 @@ export default {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
     padding: 0.5rem;
 
-    background: var(--texture-one) center center var(--font-color-one);
+    background: var(--font-color-one);
     background-size: cover;
     background-blend-mode: multiply;
 }
@@ -136,7 +138,7 @@ export default {
     margin-bottom: .4vw;
     cursor: pointer;
 
-    background: var(--texture-one) center center var(--font-color-two);
+    background: var(--font-color-two);
     background-size: cover;
     background-blend-mode: multiply;
 }
@@ -189,7 +191,6 @@ export default {
     border-radius: 2px;
     background-position: center;
     /* background-repeat: no-repeat; */
-    background-image: url('../assets/backgrounds/texture4.png');
     background-position: top;
     background-size: cover;
     cursor: pointer;

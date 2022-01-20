@@ -14,7 +14,7 @@
                     <div v-html="value.description" class="popper"></div>
 
                 <div slot="reference">
-                    <img class='item-image' :src="require(`@/assets/items/low/${key}.png`)" alt="Not like this">
+                    <img class='item-image' :src="require(`@/assets/items/high/${key}.webp`)" alt="Not like this">
                     <h2 class="item-price">{{value.bloodpoints}}</h2>
                 </div>
 
@@ -29,7 +29,7 @@
                 <popper style="z-index: 9999;" trigger="hover" :options="{placement: 'bottom'}">
                     <div v-html="value.description" class="popper"></div>
                     <div slot="reference">
-                        <img class='item-image' :src="require(`@/assets/items/low/${key}.png`)" alt="Not like this">
+                        <img class='item-image' :src="require(`@/assets/items/high/${key}.webp`)" alt="Not like this">
                         <h2 class="item-price">{{value.bloodpoints}}</h2>
                     </div>
                 </popper>
