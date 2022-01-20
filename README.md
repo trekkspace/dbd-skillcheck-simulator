@@ -1,4 +1,4 @@
-!! This project has been taken from the now unmaintained official https://github.com/trekkspace/dbd-skillcheck-simulator  and updated to fit the new changes
+Project under maintenance, thx to lucafont2 for updating the repo.
 
 ## Changelog
 - Added Glyph mode
