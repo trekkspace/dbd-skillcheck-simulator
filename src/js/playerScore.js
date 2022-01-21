@@ -72,15 +72,18 @@ const score = (status) => {
                 const itemOn = store.state.playerItems.equipedItems
                 const addOns = itemOn.addOns
                 if (addOns.length > 0) {
-                    addOns.forEach(addOn => {
-                        if (addOn.name==="brandNewPart"){
-                            if (addOn.customProp.left>0){
-                                addOn.customProp.left--;
-                                isBrand = addOn.customProp.tickProgression;
-
+                    for (var i = 0;i<addOns.length;i++) {
+                        if (addOns[i].name === "brandNewPart") {
+                            if (addOns[i].customProp.left > 0) {
+                                addOns[i].customProp.left--;
+                                isBrand = addOns[i].customProp.tickProgression;
+                            }
+                            if (addOns[i].customProp.left <= 0) {
+                                addOns.splice(i,1);
+                                i--;
                             }
                         }
-                    })
+                    }
                 }
             }
             if (status == 'great') {

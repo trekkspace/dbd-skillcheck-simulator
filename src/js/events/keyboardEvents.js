@@ -21,17 +21,15 @@ const checkKeyChar = (key) => {
 // });
 
 // mobile users
-document.addEventListener('touchstart', e => {
-    if (e.target.className == 'background') {
-        if (store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame) {
-            handleScore()
-        }
+document.addEventListener('touchstart', () => {
+    if (store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame) {
+        handleScore()
     }
+
 })
 
-document.addEventListener('mousedown', e => {
-
-    if (e.target.className == 'background' && store.state.playerSettings.mouse.skillCheckKey == e.buttons) {
+document.addEventListener('mousedown', (e) => {
+    if ( store.state.playerSettings.mouse.skillCheckKey == e.buttons) {
         if (store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame) {
             handleScore()
         }
