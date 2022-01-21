@@ -137,7 +137,7 @@ const toolboxes = {
     lunarToolbox: {
         rarity: 'common',
         what: 'toolbox',
-        name: 'festiveToolbox',
+        name: 'lunarToolbox',
         easyName: `Festive Toolbox` ,
         bloodpoints: free ? 0 : (sale / 100) * toolPrices.common,
 
