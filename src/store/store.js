@@ -17,7 +17,7 @@ const vuexLocalStorage = new VuexPersist({
   supportCircular: true,
   key: localStorageKey,
   storage: window.localStorage,
-  modules: ['playerStats','playerItems', 'playerSettings',/*'gameStatus','gameEvents'*/]
+  modules: ['playerStats','playerItems', 'playerSettings']
 })
 
 
