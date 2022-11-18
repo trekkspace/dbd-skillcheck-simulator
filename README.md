@@ -4,7 +4,7 @@ Killer perks, items and add-ons that can affect the generator progress in any wa
 
 [![N|Solid](/src/assets/backgrounds/dbd-skillcheck-simulator3.png)](http://dbd.yessirskiii.net)
 ## Website
-Visit http://dbd.yessirskiii.com/ to play.
+Visit http://dbd.yessirskiii.net/ to play.
 
 
 ## Perks
