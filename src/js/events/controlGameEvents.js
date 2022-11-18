@@ -2,20 +2,19 @@
 
 import store from '@/store/store'
 
-import {startGenerator as startGen} from '@/js/gamemode/generator/startGen.js'
-import {runGenerator as runGen} from '@/js/gamemode/generator/runGen.js'
-import {stopGenerator as stopGen} from '@/js/gamemode/generator/stopGen.js'
+import {startGenerator as startGen} from '@/js/generator/startGen.js'
+import {runGenerator as runGen} from '@/js/generator/runGen.js'
+import {stopGenerator as stopGen} from '@/js/generator/stopGen.js'
+import {skillcheckGeneration} from '@/js/skillcheckGeneration.js'
 
-import {skillcheckGenerator} from '@/js/skillchecks/generator'
-import {skillcheckDS} from '@/js/skillchecks/ds'
-
-import {removeSkillCheck, skillCheckAnimation} from '@/js/skillchecks/dom/skillCheckAnim'
+import {removeSkillCheck} from '@/js/animations/skillcheck/skillCheckAnim'
 
 import {stopButtonAnimation} from '@/js/animations/buttons/stopButtonAnim.js'
 import {startButtonAnimation} from '@/js/animations/buttons/startButtonAnim.js'
 import {pauseButtonAnimation} from '@/js/animations/buttons/pauseButtonAnim.js'
 import {resumeButtonAnimation} from '@/js/animations/buttons/resumeButtonAnim.js'
-import {skillcheckGlyph} from "@/js/skillchecks/glyph";
+// import {generatorProgressOutAnimation} from '@/js/animations/generatorAnim'
+
 
 const checkLocked = () => {
     return store.state.gameEvents.events.locked
@@ -23,7 +22,7 @@ const checkLocked = () => {
 
 const checkMenu = () => {
     if (store.state.gameEvents.events.menu) {
-       store.state.gameEvents.events.menu = !store.state.gameEvents.events.menu
+        store.state.gameEvents.events.menu = !store.state.gameEvents.events.menu 
     }
 }
 
@@ -55,22 +54,21 @@ const startGame = () => {
     if (!store.state.gameEvents.events.startGame) {
         updateGameStatus()
 
-        if (['easy','medium','hard','custom'].includes(store.state.gameStatus.now.gameMode)) {
+        if (store.state.gameStatus.now.gameMode == 'normal' || store.state.gameStatus.now.gameMode == 'training') {
             startGen()
-        }else if (store.state.gameStatus.now.gameMode === 'ds') {
-            skillcheckDS();
-        }else if (store.state.gameStatus.now.gameMode === 'glyph') {
-            skillcheckGlyph();
         }
 
+        if (store.state.gameStatus.now.gameMode == 'ds') {
+            skillcheckGeneration()
+        }
+
+        // animation effect
         startButtonAnimation()
     }
 }
 
 // stoped game status
 const stopGame = () => {
-    skillCheckAnimation.restart()
-    skillCheckAnimation.pause()
     if (checkLocked()) {
         return
     }
@@ -94,7 +92,7 @@ const stopGame = () => {
     if (store.state.gameEvents.events.startGame) {
         updateGameStatus()
 
-        if (['easy','medium','hard','custom'].includes(store.state.gameStatus.now.gameMode)) {
+        if (store.state.gameStatus.now.gameMode == 'normal' || store.state.gameStatus.now.gameMode == 'training') {
             if (store.state.gameStatus.now.generatorPaused) {
                 store.state.gameStatus.now.generatorStoped = true
 
@@ -103,9 +101,15 @@ const stopGame = () => {
             } else{
                 store.state.gameStatus.now.generatorStoped = true
             }     
-        }else{
-            removeSkillCheck();
         }
+
+        if (store.state.gameStatus.now.gameMode == 'ds') {
+            removeSkillCheck()
+            // reset combo        
+        }
+
+        // buttons animation effect
+
         stopButtonAnimation()
     }
 }
@@ -129,11 +133,16 @@ const pauseGame = () => {
 
     if (store.state.gameEvents.events.startGame && !store.state.gameEvents.events.pauseGame) {
         updateGameStatus()
-        if (['easy','medium','hard','custom'].includes(store.state.gameStatus.now.gameMode)) {
+        if (store.state.gameStatus.now.gameMode == 'normal' || store.state.gameStatus.now.gameMode == 'training') {
             store.state.gameStatus.now.generatorPaused = true
-        }else{
-            removeSkillCheck();
         }
+
+        if (store.state.gameStatus.now.gameMode == 'ds') {
+            removeSkillCheck()
+        }
+
+        // pause game anim effect
+
         pauseButtonAnimation()
     }
 }
@@ -157,17 +166,19 @@ const resumeGame = () => {
 
     if (store.state.gameEvents.events.pauseGame) {
         updateGameStatus()
-        if (['easy','medium','hard','custom'].includes(store.state.gameStatus.now.gameMode)) {
+        if (store.state.gameStatus.now.gameMode == 'normal' || store.state.gameStatus.now.gameMode == 'training') {
                 store.state.gameStatus.now.generatorPaused = false
                 runGen()
-                skillcheckGenerator()
-        }else if (store.state.gameStatus.now.gameMode === 'ds') {
-            updateGameStatus()
-            skillcheckDS();
-        }else if (store.state.gameStatus.now.gameMode === 'glyph') {
-            updateGameStatus()
-            skillcheckGlyph();
+                skillcheckGeneration()
         }
+
+        if (store.state.gameStatus.now.gameMode == 'ds') {
+            updateGameStatus()
+            skillcheckGeneration()
+        }
+
+        // anim btn
+
         resumeButtonAnimation()
     }
 }

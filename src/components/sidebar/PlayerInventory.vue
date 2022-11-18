@@ -13,7 +13,7 @@
                     </div>
 
                     <div slot="reference">
-                        <img class="item-image" :src="require(`@/assets/items/high/${key}.webp`)" alt="">
+                        <img class="item-image" :src="require(`@/assets/items/low/${key}.png`)" alt="">
                         <h2 class="item-quantity">{{value.quantity}}</h2>
                     </div>
 

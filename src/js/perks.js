@@ -3,67 +3,75 @@ import store from '@/store/store'
 const perks = {
     killer: {
         hexRuin: {
-            name: "[old] Hex: Ruin",
-            mode:["hard"],
+            applyOnStart: true,
+            goodSkillChecks: -5,
+            greatSkillChecks: 0,
             icon: 'hexRuin',
-            switches:[
-                {
-                    type:"int",
-                    from:1,
-                    to:3,
-                    val:1,
-                    name:"Tier",
-                    attr:"tier"
+            randomPick(){
+                return{
+                    active: store.state.gameStatus.now.gameMode == 'ds' ? false : store.state.gameStatus.now.gameMode == 'normal' ? Math.random() > 0.5 : true,
+                    applyOnStart: this.applyOnStart,
+                    tier: 'tier3', // default
+                    goodSkillChecks: this.goodSkillChecks,
+                    greatSkillChecks: this.greatSkillChecks,
+                    icon: this.icon,
                 }
-            ],
-        },
-        oppression: {
-            name:"Opression / Overcharge",
-            icon: 'oppression',
-            mode:["hard"],
-            switches:[]
+            }
         },
         huntressLullaby: {
-            mode:["medium","hard"],
-            name:"Hex: Huntress Lullaby",
-            switches:[
-                {
-                    type:"int",
-                    from:0,
-                    to:5,
-                    val:0,
-                    name:"Tokens",
-                    attr:"tokens"
-                }
+            applyOnStart: true,
+            failedSkillChecks: [
+                {tier1: 2},
+                {tier2: 4},
+                {tier3: 6}
             ],
-            icon: 'huntressLullaby'
+            tokens: {
+                0: 0, 
+                1: 20, // Time between the
+                2: 40, // Skill Check warning sound and the
+                3: 60, // Skill Check becomes shorter. 
+                4: 80, //
+                5: 'no sounds'
+            },
+            icon: 'huntressLullaby',
+            randomPick(){
+                // let active = Math.random > 0.5 ? true : false
+                let normalModeTier = this.failedSkillChecks[Math.floor(Math.random()*3)]
+                let trainingModeTier = this.failedSkillChecks[2]
+                return {
+                    active: store.state.gameStatus.now.gameMode == 'ds' ? false : store.state.gameStatus.now.gameMode == 'normal' ? Math.random() > 0.5 : true,
+                    applyOnStart: this.applyOnStart,
+                    tier: store.state.gameStatus.now.gameMode == 'normal' ? Object.keys(normalModeTier)[0] : Object.keys(trainingModeTier)[0],
+                    failedSkillChecks: store.state.gameStatus.now.gameMode == 'normal' ? Object.values(normalModeTier)[0] : Object.values(trainingModeTier)[0],
+                    // tokens: this.tokens,
+                    currentTokens: store.state.gameStatus.now.gameMode == 'training' ? 5 : 0,
+                    icon: this.icon,
+                    tokens: this.tokens
+                }
+            }
         },
         unnervingPresence: {
-            mode:["medium","hard"],
-            name:"Hex: Unnerving Presence",
-            switches:[
-                {
-                    type:"int",
-                    from:1,
-                    to:3,
-                    val:1,
-                    name:"Tier",
-                    attr:"tier"
-                }
+            applyOnStart: true,
+            successZone: [
+                {tier1: 40},
+                {tier2: 50},
+                {tier3: 60}
             ],
             icon: 'unnervingPresence',
+            randomPick(){
+                let normalModeTier = this.successZone[Math.floor(Math.random() * 3)]
+                let trainingModeTier = this.successZone[2]
+                return {
+                    active: store.state.gameStatus.now.gameMode == 'ds' ? false : store.state.gameStatus.now.gameMode == 'normal' ? Math.random() > 0.5 : true,
+                    activated: false,
+                    applyOnStart: this.applyOnStart,
+                    tier: store.state.gameStatus.now.gameMode == 'normal' ? Object.keys(normalModeTier)[0] : Object.keys(trainingModeTier)[0],
+                    successZone: store.state.gameStatus.now.gameMode == 'normal' ? Object.values(normalModeTier)[0] : Object.values(trainingModeTier)[0],
+                    icon: this.icon,
+                }
+            }
         }
     },
-    survivor:{
-        thisIsNotHappening: {
-            mode:["easy"],
-            name:"This Is Not Happening",
-            switches:[
-
-            ],
-            icon: 'thisIsNotHappening',
-        }
-    }
 }
 
 
@@ -72,20 +80,11 @@ const generateKillerPerks = () => {
     let killerPerks = {}
     for (let index = 0; index < possiblePerks.length; index++) {
         let currentPerk = possiblePerks[index]
-
-        killerPerks[currentPerk] = perks.killer[possiblePerks[index]]
-        killerPerks[currentPerk]["active"]=false;
+        // killerPerks[currentPerk] = perks.killer[possiblePerks[index]].randomPick()
+        killerPerks[currentPerk] = perks.killer[possiblePerks[index]].randomPick()
     }
     store.state.gameStatus.killerPerks = killerPerks
-    let survPossiblePerks = Object.keys(perks.survivor)
-    let survivorPerks = {}
-    for (let index = 0; index < survPossiblePerks.length; index++) {
-        let currentPerk = survPossiblePerks[index]
-        survivorPerks[currentPerk] = perks.survivor[survPossiblePerks[index]]
-        survivorPerks[currentPerk]["active"]=false;
-
-    }
-    store.state.gameStatus.survivorPerks = survivorPerks
+    console.log(store.state.gameStatus.killerPerks)
 }
 
 export {perks, generateKillerPerks}

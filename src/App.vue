@@ -40,7 +40,6 @@ import ActiveKillerPerks from './components/ActiveKillerPerks.vue'
 import * as events from '@/js/events/keyboardEvents.js'
 
 
-
 export default {
   name: 'app',
   components: {
@@ -92,18 +91,22 @@ body{
     --skillcheck-button-border: 1.5px solid #ffffff;
     --skillcheck-button-color: #ffffff;
     --general-stats-color: #ffffff;
-    --font-color-one: #3f3f3f;
-    --font-color-two: rgba(152, 152, 152, 0.43);
+    --font-color-one: #91e4c8;
+    --font-color-two: #a5acaa;
+    --texture-one: url('../src/assets/backgrounds/texture20.png');
+    --texture-two: url('../src/assets/backgrounds/texture15.png');
+    --texture-tree: url('../src/assets/backgrounds/texture2.png')
 }
 
 .background{
-    background: no-repeat center top fixed;
+    background: no-repeat center 20% fixed;
+    /* background-size: 100%; */
     position: fixed;
     top: 0;
     left: 0;
     background-size: 100%;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: -1;
 }
 
