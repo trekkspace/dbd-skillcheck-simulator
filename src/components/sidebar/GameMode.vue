@@ -22,9 +22,6 @@
 
 import {generateKillerPerks} from '@/js/perks'
 import {notification} from '@/js/library/use'
-import {getSwitch} from "@/js/library/getSwitch";
-import store from "@/store/store";
-import {skillCheckInit} from "@/js/skillchecks/dom/skillCheckAnim";
 
 export default {
     name: 'GameMode',
@@ -37,40 +34,10 @@ export default {
             if (this.$store.state.gameStatus.now.gameMode !== mode) {
                 this.$store.state.gameStatus.now.gameMode = mode
 
-                if (typeof  this.$store.state.gameStatus.killerPerks.oppression =="undefined") {
+                if (mode !== 'normal') {
                     generateKillerPerks()                    
                 }
-                skillCheckInit();
-                switch (mode){
-                  case "easy":
-                    this.$store.state.gameStatus.survivorPerks.thisIsNotHappening.active = true;
-                    this.$store.state.gameStatus.killerPerks.oppression.active = false;
-                    this.$store.state.gameStatus.killerPerks.huntressLullaby.active = false;
-                    this.$store.state.gameStatus.killerPerks.hexRuin.active = false;
-                    this.$store.state.gameStatus.killerPerks.unnervingPresence.active = false;
-
-                    break;
-                  case "medium":
-                    this.$store.state.gameStatus.survivorPerks.thisIsNotHappening.active = false;
-                    this.$store.state.gameStatus.killerPerks.oppression.active = false;
-                    this.$store.state.gameStatus.killerPerks.huntressLullaby.active = true;
-                    getSwitch(store.state.gameStatus.killerPerks.huntressLullaby, "tokens").val = 3;
-                    this.$store.state.gameStatus.killerPerks.hexRuin.active = false;
-                    this.$store.state.gameStatus.killerPerks.unnervingPresence.active = true;
-                    getSwitch(store.state.gameStatus.killerPerks.unnervingPresence, "tier").val=3;
-                    break;
-                  case "hard":
-                    this.$store.state.gameStatus.survivorPerks.thisIsNotHappening.active = false;
-                    this.$store.state.gameStatus.killerPerks.oppression.active = false;
-                    this.$store.state.gameStatus.killerPerks.huntressLullaby.active = true;
-                    getSwitch(store.state.gameStatus.killerPerks.huntressLullaby, "tokens").val = 5;
-                    this.$store.state.gameStatus.killerPerks.hexRuin.active = true;
-                    this.$store.state.gameStatus.killerPerks.unnervingPresence.active = true;
-                    getSwitch(store.state.gameStatus.killerPerks.unnervingPresence, "tier").val=3;
-                    getSwitch(store.state.gameStatus.killerPerks.hexRuin, "tier").val=3;
-
-                    break;
-                }
+                // killer perks will be generated in funtion on the selected game mode
             }
         },
         changeGameEffect(){
@@ -93,7 +60,7 @@ export default {
             return this.$store.state.gameStatus.now.gameModes
         },
                 // eslint-disable-next-line vue/return-in-computed-property
-        effect(){
+                effect(){
             if (this.$store.state.gameStatus.now.effects.includes('madness')) {
                 return 'activeGameMode'
             }
@@ -134,7 +101,7 @@ export default {
 
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .4);
     
-    background: var(--font-color-one);
+    background: var(--texture-two) center center var(--font-color-one);
     background-size: cover;
     background-blend-mode: multiply;
 }
@@ -160,10 +127,10 @@ export default {
         color: #ffffff !important;
     font-weight: 700 !important;
     letter-spacing: 2px;
+    background: var(--texture-two) !important;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.3s ease 0s;
-     background-color: #818181 !important;
 }
 
 </style>

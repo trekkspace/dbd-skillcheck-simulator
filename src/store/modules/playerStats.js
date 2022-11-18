@@ -16,28 +16,12 @@ const state = {
         rateGoodScore: '0%',
         rateFailedScore: '0%',
 
-        greatWiggleScore: 0,
-        goodWiggleScore: 0,
-        failedWiggleScore: 0,
-
-        rateWiggleGreatScore: '0%',
-        rateWiggleGoodScore: '0%',
-        rateWiggleFailedScore: '0%',
-
         //
         dsEscape: 0,
         dsFailed: 0,
 
         rateDsEscape: '0%',
         rateDsFailed: '0%',
-
-        glyphGood: 0,
-        glyphFailed: 0,
-
-        rateGlyphGood: '0%',
-        rateGlyphFailed: '0%',
-
-
       },
       latestGame: {
           great: 0,

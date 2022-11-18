@@ -9,7 +9,7 @@ import gameEvents from './modules/gameEvents'
 import gameNotifications from './modules/gameNotifications'
 import gameStatus from './modules/gameStatus'
 
-const localStorageKey = 'sessionStorage'
+const localStorageKey = 'trekkspaceLocalStorage'
 
 Vue.use(Vuex)
 

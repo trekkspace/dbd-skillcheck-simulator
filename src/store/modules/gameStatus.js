@@ -16,17 +16,11 @@ const state = {
         // inProgress: false,
         // waitStart: false,
         generatorsLeft: 2, // 
-        gameMode: 'easy',
+        gameMode: 'normal',
         effects: [],
         gameModes: [
-            'easy', 'medium', 'hard', 'ds', "wiggle", "glyph", 'custom',
-        ],
-        glyph:{
-            start: new Date().getTime(),
-            last: new Date().getTime(),
-            started:false,
-            now:0
-        }
+            'normal', 'ds', 'training',
+        ]
     },
     rank: {
         buttonArea: {
@@ -37,11 +31,9 @@ const state = {
         pipLevel: 0,
     },
     item: false, // holds the value from toolbox and addons toghether,
-    killerPerks: {},
-    survivorPerks:{}
+    killerPerks: {}
 }
 
 export default {
-    namespaced: true,
     state
 }

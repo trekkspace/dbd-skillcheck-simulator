@@ -65,14 +65,14 @@ export default {
         return{
             blockBrowserBackAndFowards: 'INACTIVE',
             backgrounds: [
-                'https://raw.githubusercontent.com/trekkspace/dbd-skillcheck-simulator/master/src/assets/backgrounds/b1.jpg',
-                'https://raw.githubusercontent.com/trekkspace/dbd-skillcheck-simulator/master/src/assets/backgrounds/b2.jpg',
-                'https://raw.githubusercontent.com/trekkspace/dbd-skillcheck-simulator/master/src/assets/backgrounds/fire.jpg',
+                'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/322330/4a1a9aaa02672104c56b52cc850cd84dcc15c95c.jpg',
+                "https://steamcommunity-a.akamaihd.net/economy/profilebackground/items/322330/86ad38fbb8b61da03913adf269def61231ff595b.jpg",
+                "https://steamcommunity-a.akamaihd.net/economy/profilebackground/items/635200/d476ae32ec64e1c3a2a2d49f7f63fccbea199b9b.jpg",
                 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/1ffb8d3f83682e63b1b0ea460cec4cf9d2660eec.jpg',
-                'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/c7706bb7d395142858df886f04140a0f2eb0a2a2.jpg',
-                'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/0aeb87af2751b7da7f1dcfc45602fa3f34a90bfb.jpg',
+                'https://steamcommunity-a.akamaihd.net/economy/profilebackground/items/965480/1a10ddd2e61026f9c8177b905ce8e627c72b0dd3.jpg',
+                'https://steamcommunity-a.akamaihd.net/economy/profilebackground/items/391220/f766e89255fa0395f9c3a999df0b416c98042eb4.jpg',
                 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/c68e3ea0c64cccde4c90fc8c4e4103177bbb9b50.jpg',
-                'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/ba2c58e9246696c1e94c39f6aef83c68c2b418ed.jpg',
+                "https://steamcommunity-a.akamaihd.net/economy/profilebackground/items/750920/bf3509df716162607aa8488cd9e9e8c202e8ea54.jpg",
                 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/381210/f729ce379bd27db37b6e3170b4e1ba79b486bb5e.jpg'
             ]
         }
@@ -111,9 +111,6 @@ export default {
             // console.log(`min val ${minVal} - max val ${maxVal} - val ${playerOptions[key].value}`)
 
         },
-        changeBg(e){
-          console.log(e)
-        },
         allowMouseException(){
 
             if (this.$store.state.gameEvents.events.blockBrowserBackAndFowards == 'ACTIVE') {
@@ -151,13 +148,13 @@ export default {
 
         // carousel
         showCurrentSlide (event) {
-             console.log("t",event)
+            // console.log(this.backgrounds[event.currentSlide])
             this.$store.state.playerSettings.backgroundURL = this.backgrounds[event.currentSlide]
         },
         gSlide(){
             for (let i = 0; i < this.backgrounds.length; i++) {
                 const element = this.backgrounds[i]
-                console.log(this.backgrounds[i])
+                // console.log(this.backgrounds[i])
                 if (element == this.$store.state.playerSettings.backgroundURL) {
                     return i
                 }
@@ -223,8 +220,9 @@ export default {
 
 input{
     width: 10rem;
-    background: #424242FF;
+    background: rgb(103, 238, 175);
     border: none;
+    background: url('../../assets/backgrounds/texture13.png');
     border-radius: 2px;
     /* justify-self: end; */
     text-align: center;

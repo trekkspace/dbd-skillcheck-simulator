@@ -34,7 +34,6 @@ import {initDom} from '@/js/domElements'
 export default {
     methods:{
         startGame(){
-            this.$store.state.gameStatus.now.glyph.start=false;
             event.startGame()
         },
         pauseGame(){
@@ -42,8 +41,7 @@ export default {
         },
 
         resumeGame(){
-            this.$store.state.gameStatus.now.glyph.start=false;
-          // this.$refs['resume']
+            // this.$refs['resume']
             event.resumeGame()
         },
         stopGame(){
@@ -134,7 +132,7 @@ button:enabled{
 
 
 .playBtn, .resumeBtn, .pauseBtn, .stopBtn{
-    background-color: #1e1e1e;
+    background-color: #80D5FF;
 }
 
 .playBtn{
