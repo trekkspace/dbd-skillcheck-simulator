@@ -97,6 +97,11 @@ Go to **localhost:8080** to play.
 Want to contribute? Great!
 This project uses Javascript and VueJS, feel free to improve the project if you found bugs or have other ideeas.
 
+## Contributors
+
+This is a updated version of the simulator, you can also try it!
+https://github.com/lucafont2/dbd-skillcheck-simulator
+
 
 License
 ----
