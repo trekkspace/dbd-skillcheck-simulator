@@ -2,9 +2,9 @@
 Dead by Daylight Skillcheck Simulator - Train your skills. 
 Killer perks, items and add-ons that can affect the generator progress in any way can be tested and learned here.
 
-[![N|Solid](/src/assets/backgrounds/dbd-skillcheck-simulator3.png)](http://dbd.trekkspace.com)
+[![N|Solid](/src/assets/backgrounds/dbd-skillcheck-simulator3.png)](http://dbd.yessirskiii.net)
 ## Website
-Visit http://dbd.trekkspace.com/ to play.
+Visit http://dbd.yessirskiii.com/ to play.
 
 
 ## Perks
@@ -97,9 +97,6 @@ Go to **localhost:8080** to play.
 Want to contribute? Great!
 This project uses Javascript and VueJS, feel free to improve the project if you found bugs or have other ideeas.
 
-## Feedback
-
-You can add me on discord: trekkspace#6914
 
 License
 ----
